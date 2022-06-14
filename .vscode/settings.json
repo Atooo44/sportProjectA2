@@ -6,8 +6,33 @@
             "port": 5432,
             "askForPassword": true,
             "driver": "PostgreSQL",
+<<<<<<< HEAD
             "database": "projet_match_a2",
             "name": "projet_match_a2",
+=======
+            "name": "tp8",
+            "database": "citations",
+            "username": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "tp8",
+            "database": "citations",
+            "username": "postgres"
+        },
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "askForPassword": true,
+            "driver": "PostgreSQL",
+            "name": "projet_match_a2",
+            "database": "projet_match_a2",
+>>>>>>> 660af9c32275d3eb5d51391cc858c61c87e8bde7
             "username": "postgres"
         }
     ]
