@@ -18,7 +18,8 @@ CREATE TABLE public.users(
 	age            INT  NOT NULL ,
 	password       VARCHAR (50) NOT NULL ,
 	fit            VARCHAR (50) NOT NULL ,
-	match_played   INT  NOT NULL  ,
+	match_played   INT  NOT NULL ,
+	mark           FLOAT  NOT NULL  ,
 	CONSTRAINT users_PK PRIMARY KEY (mail)
 )WITHOUT OIDS;
 
