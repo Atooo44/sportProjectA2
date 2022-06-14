@@ -21,7 +21,7 @@
                 <ul class="navigation">
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">Sports</a></li>
-                    <li><a href="#">Inscription</a></li>
+                    <li><a href="connection.php">Inscription</a></li>
                     <li><span class="darkMode"></span></li>
                 </ul>
             </header>
