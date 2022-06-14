@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+*{
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --white: #F7F8FC;
+    --black: #32353E;
+    --blue: #B1C8EA;
+    --blue2: #77A0F2;
+    --green: #9FBE22;
+    --yellow: #F0D233;
+/*    --black: #333;
+    --green: #017143;
+    --green2:#17aa34;
+    --white: #fff;
+    --white2: #fff;
+    --black2: #333;
+    --red: #f23131;
+    --pink: #ff78aa;
+    --purple: #c663dd;*/
+}
+
+.dark{
+    --black: #fff;
+    --white: #113828;
+    --black2: #124e36;
+    --red: #710101;
+    --pink: #de5688;
+    --purple: #932aab;
+    --green2:#09482d;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+section{
+    
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    padding: 100px ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: var(--green2);
+    transition: background-color 1s;
+}
+
+
+header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    
+}
+
+header .logo{
+    position: relative;
+    max-width: 70px;
+}
+
+header ul{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header ul li{
+    list-style: none;
+    display: flex;
+    margin-left: 30px;
+}
+
+header ul li a{
+    display: inline-block;
+    color: var(--black);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    z-index: 2;
+}
+
+.main .textMain{
+    position: relative;
+    max-width: 600px;
+    z-index: 1;
+    margin-right: 20px;
+}
+
+.main h2{
+
+    font-size: 4em;
+    color: var(--black);
+    line-height: 1.4em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.dark .main .textMain h2 span{
+    
+    color: #00ff9b;
+}
+
+.main h2 span{
+    
+    font-size: 1.2em;
+    color: var(--green);
+}
+
+.main .textMain p{
+    
+    color: var(--black);
+}
+
+
+.darkMode{
+    
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: var(--black);
+    display: inline-flex;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.darkMode::before{
+    content: '\f186';
+    font-family: fontAwesome;
+    color: var(--white);
+    font-size: 20px;
+}
+
+.darkMode.active::before{
+    content: '\f185';
+}
+
+
+
+@media (max-width: 991px){
+    section{
+        padding: 150px 20px 0 20px;
+    }
+    header{
+        padding: 20px;
+    }
+    .main{
+        justify-content: center;
+        flex-direction: column;
+        
+    }
+    .navigation{
+        
+        display: none;
+    }
+    .navigation.active{
+        transition: 700ms;
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background: var(--white);
+        flex-direction: column;
+    }
+    header ul li{
+        margin: 10px 0;
+        margin-left: 0;
+    }
+    header ul li a{
+        font-size: 1.5em;
+        font-weight: 300;
+    }
+    .toggle{
+        position: relative;
+        width: 30px;
+        height: 30px;
+        background: url(ressources/menu.svg);
+        background-size: 30px;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 55555555555;
+    }
+    .toggle.active{
+        background: url(ressources/close.svg);
+        background-size: 25px;
+        background-position: center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        z-index: 555555555555;
+    }
+    .dark .toggle{
+        filter: invert(0%);
+        -webkit-filter: invert(0%);
+    }
+
+}
