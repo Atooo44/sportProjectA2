@@ -35,6 +35,10 @@
     --green2:#09482d;
 }
 
+button {
+    cursor: pointer;
+  }
+
 body{
     overflow-x: hidden;
 }
@@ -102,13 +106,6 @@ header ul li a{
     z-index: 2;
 }
 
-.main .textMain{
-    position: relative;
-    max-width: 600px;
-    z-index: 1;
-    margin-right: 20px;
-}
-
 .main h2{
 
     font-size: 4em;
@@ -118,22 +115,12 @@ header ul li a{
     margin-bottom: 10px;
 }
 
-.dark .main .textMain h2 span{
-    
-    color: #00ff9b;
-}
 
 .main h2 span{
     
     font-size: 1.2em;
     color: var(--green);
 }
-
-.main .textMain p{
-    
-    color: var(--black);
-}
-
 
 .darkMode{
     
@@ -160,6 +147,48 @@ header ul li a{
 .darkMode.active::before{
     content: '\f185';
 }
+
+.search_form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+    min-width: 600px;
+    display: flex;
+    align-items: center;
+    border: solid 5px var(--green);
+    border-radius: 10px;
+    padding: 15px 15px 15px 15px;
+}
+
+.search_form input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    padding: 15px 20px;
+    font-size: 16px;
+    size: 400px;
+    color: var(--black);
+    outline: none;
+  }
+
+::placeholder {
+    color: var(--black);
+  }
+
+  .search_form button {
+    flex: 2;
+    border: 0;
+    background: transparent;
+    border: none;
+    
+  }
+
+  .btn{
+    cursor: pointer;
+    filter: invert(70%) sepia(52%) saturate(589%) hue-rotate(28deg) brightness(89%) contrast(98%);
+  }
+
 
 
 

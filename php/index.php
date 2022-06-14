@@ -27,10 +27,12 @@
             </header>
             <!-- commentaire -->
             <div class="main">
-                <h2>Trouver un <span>match</span><br> près de chez vous</h2>
+                <h2>Trouver un <span>match</span><br> près de chez vous</h2><br>
                 <form action="" method="post" class="search_form" >
                         <input type="text" name="search" placeholder="Football, Tennis, Nantes, Caen..." class="searchbar" id="searchbar">
-                        <button type="submit" class="submit_button"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <div class="btn">
+                            <i class="submit_button fas fa-search fa-2xl"></i>
+                        </div>
                         </input>
                 </form>
 
@@ -55,6 +57,7 @@
         navigation.classList.toggle('active');
     }
 </script>
+<script src="https://kit.fontawesome.com/7f6d2012d0.js" >
     </body>
 </html>
 
