@@ -1,3 +1,9 @@
+<?php
+  include("database.php");
+  ini_set('display_errors',1);
+  error_reporting(E_ALL);
+  //$db = dbConnect();
+?>
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -10,7 +16,7 @@
     <body>
         <section class="green">
             <header>
-                <a href="index.php"><img src="ressources/logo_match.svg" class="logo"></a>
+                <a href="index.php"><img src="../ressources/logo_match.svg" class="logo"></a>
                 <div class="toggle"></div>
                 <ul class="navigation">
                     <li><a href="#">Accueil</a></li>
@@ -32,7 +38,7 @@
                     
                 </div>
             </div>
-        </section>    
+        </section>
            
 <script>
     let darkmode = document.querySelector('.darkMode');
