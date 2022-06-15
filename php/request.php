@@ -15,8 +15,9 @@
     $requestRessource = array_shift($request);
 
     switch (true) {
-        case 'value':
-            # code...
+        case $requestMethod == "POST" && $requestRessource == "create":
+            $res_add_user = add_user($db, $_POST['mail'], $_POST['last_name'], $_POST['first_name'], $_POST['password']);
+            echo json_encode($res_add_user);
             break;
         default:
             # code...

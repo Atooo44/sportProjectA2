@@ -10,6 +10,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
         <link href="../css/default.css" rel="stylesheet">
         <link href="../css/homepage.css" rel="stylesheet">
         <title> Sportmate</title>
@@ -42,7 +44,9 @@
                 </div>
             </div>
         </section>
-           
+<script src="../js/ajax.js"></script>       
+<script src="../js/events.js"></script>
+<script src="../js/utils.js"></script>      
 <script>
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
@@ -58,7 +62,7 @@
         navigation.classList.toggle('active');
     }
 </script>
-<script src="https://kit.fontawesome.com/7f6d2012d0.js" >
+<script src="https://kit.fontawesome.com/7f6d2012d0.js" ></script>
     </body>
 </html>
 

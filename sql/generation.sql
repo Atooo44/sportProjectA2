@@ -16,7 +16,7 @@ CREATE TABLE public.users(
 	last_name      VARCHAR (50) NOT NULL ,
 	city           VARCHAR (50) NOT NULL ,
 	age            INT  NOT NULL ,
-	password       VARCHAR (50) NOT NULL ,
+	password       VARCHAR (80) NOT NULL ,
 	fit            VARCHAR (50) NOT NULL ,
 	match_played   INT  NOT NULL ,
 	mark           FLOAT  NOT NULL  ,

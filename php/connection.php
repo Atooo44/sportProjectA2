@@ -8,7 +8,15 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <link href="" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+      integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+      integrity="sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
         <title> </title>
     </head>
     <body>
@@ -43,36 +51,38 @@
             <h2 class="signup_title">Inscrivez vous gratuitement</h2>
             <div class="signup_row">
                 <label class="signup_label">Nom</label>
-                <input class="signup_input" id="" type="text" placeholder="Macor"/>
+                <input class="signup_input" id="first_name" type="text" placeholder="Macor"/>
             </div>
             <div class="signup_row">
                 <label class="signup_label">Prénom</label>
-                <input class="signup_input" id="" type="text" placeholder="Pierre"/>
+                <input class="signup_input" id="last_name" type="text" placeholder="Pierre"/>
             </div>
             <div class="signup_row">
                 <label class="signup_label">Ville</label>
-                <input class="signup_input" id="" type="text" placeholder="Paris"/>
+                <input class="signup_input" id="city" type="text" placeholder="Paris"/>
             </div>
             <div class="signup_row">
                 <label class="signup_label">E-Mail</label>
-                <input class="signup_input" id="" type="email" placeholder="example@email.com"/>
+                <input class="signup_input" id="mail" type="email" placeholder="example@email.com"/>
             </div>
             <div class="signup_row">
                 <label class="signup_label">Mot de passe</label>
-                <input class="signup_input" id="" type="password" placeholder="**********"/>
+                <input class="signup_input" id="password" type="password" placeholder="**********"/>
             </div>
             <div class="signup_row">
                 <label class="signup_label">Vérification du mot de passe</label>
-                <input class="signup_input" id="" type="password" placeholder="**********"/>
+                <input class="signup_input" id="password_confirmation" type="password" placeholder="**********"/>
             </div>
             <div class="signup_row">
-                <button class="signup_button" type="submit">S'inscrire</button>
+                <button class="signup_button" id="signup_submit" type="button">S'inscrire</button>
             </div>
         </div>
     </form>
 </div>
 
 
-<script src=""></script>
+<script src="../js/events.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/utils.js"></script>
     </body>
 </html>

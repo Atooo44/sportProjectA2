@@ -14,13 +14,18 @@ function ajaxRequest(type, url, callback, data = null){
   xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
   // Add the onload function.
+  RESPONSE = {
+    "redirect": false
+  }
   xhr.onload = () =>
   {
     switch (xhr.status)
     {
       case 200:
+        if (callback != undefined){
+          callback_result = callback(JSON.parse(xhr.responseText));
+        }
       case 201:
-        //console.log(xhr.responseText);
         if (callback != undefined){
           callback(JSON.parse(xhr.responseText));
         }
@@ -32,6 +37,7 @@ function ajaxRequest(type, url, callback, data = null){
 
   // Send XML HTTP request.
   xhr.send(data);
+  return RESPONSE;
 }
 
 //------------------------------------------------------------------------------
@@ -60,3 +66,27 @@ function httpErrors(errorCode)
     }, 5000);
   }
 }
+
+function displayError(message){
+
+  let error_balise = document.createElement('section')
+  error_balise.className = 'container alert alert-error'
+  error_balise.id = "error_section"
+  error_balise.innerHTML = "Un problème est survenu lors de la création du compte"
+  document.querySelector("body > div > form.login.form").before(error_balise);
+  
+
+}
+
+function createSession(response){
+  if (response['isSuccess']) {
+      addUserCookie(response['id']);
+      window.location.href = "index.php"
+      return true
+  } else {
+    displayError("TEST")
+    return false
+  }
+}
+
+
