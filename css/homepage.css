@@ -1,3 +1,31 @@
+:root{
+    --white: #F7F8FC;
+    --black: #32353E;
+    --blue: #B1C8EA;
+    --blue2: #77A0F2;
+    --green: #9FBE22;
+    --yellow: #F0D233;
+/*    --black: #333;
+    --green: #017143;
+    --green2:#17aa34;
+    --white: #fff;
+    --white2: #fff;
+    --black2: #333;
+    --red: #f23131;
+    --pink: #ff78aa;
+    --purple: #c663dd;*/
+}
+
+.dark{
+    --black: #fff;
+    --white: #111638;
+    --black2: #1a155e;
+    --red: #710101;
+    --pink: #de5688;
+    --purple: #932aab;
+    --green2:#09482d;
+}
+
 .main{
     position: relative;
     width: 100%;
@@ -91,3 +119,81 @@
     filter: invert(70%) sepia(52%) saturate(589%) hue-rotate(28deg) brightness(89%) contrast(98%);
   }
 
+.carousel{
+    position: relative;
+}
+
+.carousel .row{
+    margin: 0 -1.5em;
+}
+
+.carousel .swiper{
+    padding: 0 0 4em;
+}
+
+.carousel ul{
+    display: flex;
+    list-style: none;
+}
+
+.carousel img{
+    width: 304px;
+    height: 203px;
+}
+
+.carousel ul li{
+    padding: 0 1.5em;
+}
+
+.carousel .sport{
+    position: relative;
+    background-color: red;
+    padding: 1.5em;
+    border-radius: 15px;
+}
+
+.carousel .sport .detail{
+    padding-right: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: absolute;
+    top: 11em;
+    left: 2.5em;
+    width: calc(100% - 3em);
+}
+
+.detail h3{
+    color: white;
+}
+
+.carousel .sport .minia{
+    position: relative;
+    width: 250px;
+    height: auto;
+    margin-left: auto;
+}
+
+.carousel .dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel .dots span{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    display: block;
+    position: relative;
+    background-color: rgb(202, 202, 202);
+    border: 10px solid var(--white);
+    outline: 0;
+    opacity: 1;
+}
+
+.carousel .dots span.current{
+    width: 50px;
+    background-color: var(--green);
+    transition: width .3s, background-color .3s;
+}

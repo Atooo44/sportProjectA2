@@ -40,7 +40,95 @@
                 </form>
 
                 <div class="carousel">
-                    
+                    <div class="row">
+                        <div class="swiper">
+                            <ul>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Football</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/football.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Tennis</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/tennis.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Babyfoot</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/babyfoot.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Rugby</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/rugby.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Voleyball</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/volleyball.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="sport">
+                                        <div class="detail">
+                                            <div class="rating"></div>
+                                            <h3>Basketball</h3>
+                                        </div>
+                                        <div class="minia">
+                                            <a href="#">
+                                                <img src="../ressources/basketball.png">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                            <div class="dots">
+                                <span class="current"></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
