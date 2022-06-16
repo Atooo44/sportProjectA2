@@ -1,0 +1,163 @@
+:root{
+    --white: #F7F8FC;
+    --black: #32353E;
+    --blue: #B1C8EA;
+    --blue2: #77A0F2;
+    --green: #9FBE22;
+    --green2: #acce24;
+    --green3: #8eaa1f;
+    --yellow: #F0D233;
+}
+
+.dark{
+    --black: #fff;
+    --white: #111638;
+    --black2: #1a155e;
+    --red: #710101;
+    --pink: #de5688;
+    --purple: #932aab;
+    --green2:#09482d;
+}
+
+.parent {
+    display: grid;
+    grid-template-columns: 1fr repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    width: 100%;
+    margin-top: 5vh;
+    height: 81vh;
+
+    }
+    
+    .div1 { 
+        grid-area: 1 / 1 / 6 / 2;
+        border-right: solid var(--black) 2px;
+    }
+    .div2 { 
+        grid-area: 1 / 2 / 6 / 6;
+        display: flex;
+        flex-direction: column;
+        margin-left: 10%;
+    }
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: var(--black);
+    font-size: 20px;
+    font-weight: 600;
+
+}
+
+.row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2em;
+    width: 13em;
+}
+
+.circle{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--green);
+}
+
+.add{
+    display: flex;
+}
+
+.add img{
+    width: 30px;
+    height: auto;
+    margin-left: auto;
+}
+
+.card_event{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+    padding: 10px 0 10px 0;
+    border: 4px solid var(--blue2);
+    border-radius: 15px;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.25);
+    margin-bottom: 1.2em;
+}
+
+.card_event{
+    font-size: 16px;
+    color: var(--black);
+}
+
+.card_event select{
+    font-size: 16px;
+    color: var(--black);
+}
+
+.card_event input{
+    border: solid 3px var(--blue2);
+    font-size: 16px;
+    background: none;
+    padding: 0.5em 1em;
+    border-radius: 12px;
+}
+
+.card_event input:focus{
+    outline: none;
+}
+
+.first{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.second{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.third{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.number{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: solid 3px var(--blue2);
+    border-radius: 10px;
+    padding: 0 15px 0 0;
+}
+
+.number input {
+    background: transparent;
+    flex: 1;
+    border: none;
+    color: var(--black);
+    outline: none;
+    width: 4em;
+}
+
+.number span {
+    flex: 2;
+    border: none;
+    background: transparent;
+
+    
+}
