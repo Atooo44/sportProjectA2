@@ -8,11 +8,11 @@ DROP TABLE IF EXISTS match CASCADE;
 DROP TABLE IF EXISTS reservation CASCADE;
 
 ------------------------------------------------------------
--- Table: city
+-- Table: location
 ------------------------------------------------------------
-CREATE TABLE public.city(
+CREATE TABLE public.location(
 	city   VARCHAR (50) NOT NULL  ,
-	CONSTRAINT city_PK PRIMARY KEY (city)
+	CONSTRAINT location_PK PRIMARY KEY (city)
 )WITHOUT OIDS;
 
 
@@ -30,7 +30,7 @@ CREATE TABLE public.user(
 	city           VARCHAR (50) NOT NULL  ,
 	CONSTRAINT user_PK PRIMARY KEY (mail)
 
-	,CONSTRAINT user_city_FK FOREIGN KEY (city) REFERENCES public.city(city)
+	,CONSTRAINT user_location_FK FOREIGN KEY (city) REFERENCES public.location(city)
 )WITHOUT OIDS;
 
 
@@ -51,7 +51,7 @@ CREATE TABLE public.match(
 	CONSTRAINT match_PK PRIMARY KEY (id_match)
 
 	,CONSTRAINT match_user_FK FOREIGN KEY (mail) REFERENCES public.user(mail)
-	,CONSTRAINT match_city0_FK FOREIGN KEY (city) REFERENCES public.city(city)
+	,CONSTRAINT match_location0_FK FOREIGN KEY (city) REFERENCES public.location(city)
 )WITHOUT OIDS;
 
 
