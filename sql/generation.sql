@@ -2,7 +2,7 @@
 --        Script Postgre 
 ------------------------------------------------------------
 
-DROP TABLE IF EXISTS city CASCADE;
+DROP TABLE IF EXISTS location CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS match CASCADE;
 DROP TABLE IF EXISTS reservation CASCADE;
@@ -17,9 +17,9 @@ CREATE TABLE public.location(
 
 
 ------------------------------------------------------------
--- Table: user
+-- Table: users
 ------------------------------------------------------------
-CREATE TABLE public.user(
+CREATE TABLE public.users(
 	mail           VARCHAR (50) NOT NULL ,
 	first_name     VARCHAR (50) NOT NULL ,
 	last_name      VARCHAR (50) NOT NULL ,
@@ -28,9 +28,9 @@ CREATE TABLE public.user(
 	fit            VARCHAR (50) NOT NULL ,
 	match_played   INT  NOT NULL ,
 	city           VARCHAR (50) NOT NULL  ,
-	CONSTRAINT user_PK PRIMARY KEY (mail)
+	CONSTRAINT users_PK PRIMARY KEY (mail)
 
-	,CONSTRAINT user_location_FK FOREIGN KEY (city) REFERENCES public.location(city)
+	,CONSTRAINT users_location_FK FOREIGN KEY (city) REFERENCES public.location(city)
 )WITHOUT OIDS;
 
 
@@ -50,7 +50,7 @@ CREATE TABLE public.match(
 	city          VARCHAR (50) NOT NULL  ,
 	CONSTRAINT match_PK PRIMARY KEY (id_match)
 
-	,CONSTRAINT match_user_FK FOREIGN KEY (mail) REFERENCES public.user(mail)
+	,CONSTRAINT match_users_FK FOREIGN KEY (mail) REFERENCES public.users(mail)
 	,CONSTRAINT match_location0_FK FOREIGN KEY (city) REFERENCES public.location(city)
 )WITHOUT OIDS;
 
@@ -65,7 +65,7 @@ CREATE TABLE public.reservation(
 	id_match         INT  NOT NULL  ,
 	CONSTRAINT reservation_PK PRIMARY KEY (id_reservation)
 
-	,CONSTRAINT reservation_user_FK FOREIGN KEY (mail) REFERENCES public.user(mail)
+	,CONSTRAINT reservation_users_FK FOREIGN KEY (mail) REFERENCES public.users(mail)
 	,CONSTRAINT reservation_match0_FK FOREIGN KEY (id_match) REFERENCES public.match(id_match)
 )WITHOUT OIDS;
 
