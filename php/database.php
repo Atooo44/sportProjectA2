@@ -26,10 +26,35 @@
         }
     }
 
+    //** Function that check if a city is registered in table and add it if not exists */
+
+    function isCityExists($db, $query){
+        $response = array();
+        try {
+            $request = "SELECT city FROM location WHERE (city = :cityname)";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':cityname', $query);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            if (empty($result)) {
+                $request = "INSERT INTO location (city) VALUES (:cityname)";
+                $statement = $db->prepare($request);
+                $statement->bindParam(':cityname', $query);
+                $statement->execute();
+            }
+        }
+        catch (PDOException $exception){
+            $response['error'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+
     //** Function that add a user to the database */
     //** Args => Mail | Last_name | first_name | Phone | Password */
 
-    function add_user($db,$mail,$last_name,$first_name,$password, $city='', $age=0, $fit='', $match_played=0, $mark=0){
+    function add_user($db,$mail,$last_name,$first_name,$password, $city, $age=0, $fit='', $match_played=0, $mark=0){
         $response = array();
         try {
             $is_registered = false;
@@ -51,6 +76,9 @@
         
         if (!$is_registered) {
             try {
+
+                isCityExists($db, $city);
+
                 // Password encryption
                 $password = password_hash($password, PASSWORD_DEFAULT);
                 $request = "INSERT INTO users (mail, last_name, first_name,password, city, age, fit, match_played, mark) VALUES (:mail,:name, :prename,:password, :city, :age, :fit, :match_played, :mark)";
@@ -83,6 +111,39 @@
       }
     }
 
+    //** Function that check if the user is registered in the database */
+    function check_user($db, $mail, $password){
+        $response = array();
+        try {
+            $is_registered = false;
+            $request = "SELECT users.mail, users.password FROM users WHERE (users.mail = :mail)";    
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        }
+        catch (PDOException $exception){
+            $response['error'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+        
+        if(!empty($result)){
+            if (password_verify($password, $result[0]['password'])) {
+                $response['isSuccess'] = true;
+                $response['id'] = $mail;
+                
+            } else {
+                $response['isSuccess'] = false;
+                $response['error'] = "Le mot de passe est incorrecte";
+            }
+            
+        } else {
+            $response['isSuccess'] = false;
+            $response['error'] = "L'email n'est associé à aucun compte";
+        }
+        return $response;
+        
 
-
+    }
 ?>

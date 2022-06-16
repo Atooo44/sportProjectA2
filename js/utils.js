@@ -8,7 +8,7 @@ function deleteCookie(key){
 
 
 function checkRegisterFields(){
-    if (document.getElementById('password').value != document.getElementById('password_confirmation')) {
+    if (document.getElementById('password').value != document.getElementById('password_confirmation').value) {
         return {
             "isSuccess": false,
             "message": "Les mots de passes indiqués ne sont pas identiques"
@@ -16,13 +16,34 @@ function checkRegisterFields(){
     }
 
 
-    if (document.getElementById('first_name').value == '' || document.getElementById('last_name').value == "" || document.getElementById('city').value == "") {
+    if (document.getElementById('first_name').value == '' || document.getElementById('last_name').value == "" || document.getElementById('city').value == "" || document.getElementById('password').value == "") {
         return {
             "isSuccess": false,
             "message": "Une erreur est survenue, merci de veiller a remplir tout les champs."
         }   
     }
     else if (document.getElementById('mail').value == '' || !(document.getElementById('mail').value).includes("@")) {
+        return {
+            "isSuccess": false,
+            "message": "Une erreur est survenue, merci de vérifier le champ 'mail'. "
+        }
+    } else {
+        return {
+            "isSuccess": true
+        }
+    }
+}
+
+function checkLoginFields(){
+
+
+    if (document.getElementById('password_input').value == '' || document.getElementById('email_input').value == "") {
+        return {
+            "isSuccess": false,
+            "message": "Une erreur est survenue, merci de veiller a remplir tout les champs."
+        }   
+    }
+    else if (document.getElementById('email_input').value == '' || !(document.getElementById('email_input').value).includes("@")) {
         return {
             "isSuccess": false,
             "message": "Une erreur est survenue, merci de vérifier le champ 'mail'. "

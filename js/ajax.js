@@ -26,9 +26,11 @@ function ajaxRequest(type, url, callback, data = null){
           callback_result = callback(JSON.parse(xhr.responseText));
         }
       case 201:
+        /*
         if (callback != undefined){
           callback(JSON.parse(xhr.responseText));
         }
+        */
         break;
       default:
         httpErrors(xhr.status);
@@ -87,7 +89,24 @@ function createSession(response){
 
   if (response['isSuccess']) {
       addUserCookie(response['id']);
-      window.location.href = "index.php"
+      //window.location.href = "index.php"
+      return true
+  } else {
+    displayError(response['error'])
+    return false
+  }
+}
+
+function createSessionLogin(response){
+  let check = checkLoginFields();
+  if (!check['isSuccess']){
+    displayError(check['message']);
+    return false
+  }
+
+  if (response['isSuccess']) {
+      addUserCookie(response['id']);
+      //window.location.href = "index.php"
       return true
   } else {
     displayError(response['error'])

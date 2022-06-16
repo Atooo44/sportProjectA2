@@ -1,1 +1,1 @@
-INSERT INTO users (mail, last_name, first_name,password, city, age, fit, match_played, mark) VALUES ('teeest','user', 'first','password', 'Nantes', 18, '', 0, 0)
+INSERT INTO location (city) VALUES ('Nantes')

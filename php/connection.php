@@ -26,14 +26,14 @@
         <h2 class="login_title">Se connecter</h2>
             <div class="login_row">
                 <label class="login_label">Email</label>
-                <input class="login_input" id="" type="email" placeholder="email@exemple.com">
+                <input class="login_input" id="email_input" type="email" placeholder="email@exemple.com">
             </div>
             <div class="login_row">
                 <label class="login_label">Mot de passe</label>
-                <input class="login_input" id="" type="password" placeholder="**********">
+                <input class="login_input" id="password_input" type="password" placeholder="**********">
             </div>
             <div class="login_row">
-                <button class="login_button" type="submit">S'IDENTIFIER</button>
+                <button class="login_button" id="login_submit" type="button">S'IDENTIFIER</button>
             </div>
     </form>
 
