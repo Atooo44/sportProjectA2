@@ -86,7 +86,10 @@
                 </div>
             </div>
 
-            <button>Modifier le profil</button>
+            <div class="modify">
+                <button>Modifier le profil</button>
+            </div>
+            
 
         </section>
            

@@ -49,3 +49,9 @@
     width: 80px;
     height: 80px;
 }
+
+.modify{
+    position: fixed;
+    bottom: 2vh;
+    right: 2vw; 
+}

@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS match CASCADE;
 DROP TABLE IF EXISTS reservation CASCADE;
 
+
 ------------------------------------------------------------
 -- Table: location
 ------------------------------------------------------------
@@ -27,6 +28,7 @@ CREATE TABLE public.users(
 	password       VARCHAR (80) NOT NULL ,
 	fit            VARCHAR (50) NOT NULL ,
 	match_played   INT  NOT NULL ,
+	mark           INT  NOT NULL ,
 	city           VARCHAR (50) NOT NULL  ,
 	CONSTRAINT users_PK PRIMARY KEY (mail)
 
