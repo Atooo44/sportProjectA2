@@ -86,6 +86,8 @@
                 </div>
             </div>
 
+            <button>Modifier le profil</button>
+
         </section>
            
 <script>
