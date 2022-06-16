@@ -15,7 +15,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
         <link href="../css/default.css" rel="stylesheet">
-        <link href="../css/profil_info.css" rel="stylesheet">
+        <link href="../css/account.css" rel="stylesheet">
         <title> Sportmate</title>
     </head>
     <body>
@@ -32,11 +32,16 @@
             </header>
             <!-- commentaire -->
             <div class="parent">
-                <div class="menu">
-                    <div class="div1">
-                        <a href="">Profil</a>
-                        <a href="">Notifications</a>
-                        <a href="">Matchs</a>
+                <div class="div1">
+                    <div class="menu">
+                        <div class="row">
+                            <a href="">PROFIL </a> <div class="circle"></div>
+                        </div>
+                        <div class="row">
+                        <a href="">NOTIFICATIONS</a>
+                        </div>
+                        <div class="row"><a href="">MATCHS</a></div>
+                        
                     </div>
                 </div>
 
@@ -44,7 +49,7 @@
                     <div class="identity">
                         <div class="photo">
                             <img src="../ressources/pp1.png">
-                            <i class="fa-solid fa-pen-to-square"></i>
+                            <i class="fa-solid fa-pen-to-square "></i>
                         </div>
                         <div class="personal">
                             <div class="name">
@@ -60,15 +65,15 @@
 
                     </div>
                     <div class="complementary">
-                        <div class="age">
+                        <div class="age column">
                             <span>Age</span>
-                            <p>23 anss</p>
+                            <p>23 ans</p>
                         </div>
-                        <div class="city">
+                        <div class="city column">
                             <span>Ville</span>
                             <p>Nantes</p>
                         </div>
-                        <div class="fit">
+                        <div class="fit column">
                             <span>Forme physique</span>
                             <p>Athlétique</p>
                         </div>
