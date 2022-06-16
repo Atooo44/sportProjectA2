@@ -72,19 +72,25 @@ function displayError(message){
   let error_balise = document.createElement('section')
   error_balise.className = 'container alert alert-error'
   error_balise.id = "error_section"
-  error_balise.innerHTML = "Un problème est survenu lors de la création du compte"
+  error_balise.innerHTML = message
   document.querySelector("body > div > form.login.form").before(error_balise);
   
 
 }
 
 function createSession(response){
+  let check = checkRegisterFields();
+  if (!check['isSuccess']){
+    displayError(check['message']);
+    return false
+  }
+
   if (response['isSuccess']) {
       addUserCookie(response['id']);
       window.location.href = "index.php"
       return true
   } else {
-    displayError("TEST")
+    displayError(response['error'])
     return false
   }
 }

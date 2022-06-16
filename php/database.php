@@ -77,7 +77,7 @@
                 return $response;
             }
         }else {
-            $response['error'] = "This email address is already in use";
+            $response['error'] = "L'adresse e-mail est déjà lié à un compte existant";
             $response['isSuccess'] = false;
             return $response;
       }
