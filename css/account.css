@@ -189,3 +189,7 @@ input{
     color: var(--black);
     font-weight: 500;
 }
+
+.star{
+    transition: 280ms ease;
+}

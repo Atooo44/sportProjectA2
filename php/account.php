@@ -85,12 +85,14 @@
                     <div class="mark">
                         <span> Noter l'Application</span>
                         <div class="note">
-                        <i class="fa-solid fa-star" id="star1"></i>
-                        <i class="fa-solid fa-star" id="star2"></i>
-                        <i class="fa-solid fa-star" id="star3"></i>
-                        <i class="fa-solid fa-star" id="star4"></i>
-                        <i class="fa-solid fa-star" id="star5"></i>
+                        <i class="fa-solid fa-star star" id="star1" onmouseover="colorStar(1)" onclick ="setNote(1)"></i>
+                        <i class="fa-solid fa-star star" id="star2" onmouseover="colorStar(2)" onclick ="setNote(2)"></i>
+                        <i class="fa-solid fa-star star" id="star3" onmouseover="colorStar(3)" onclick ="setNote(3)"></i>
+                        <i class="fa-solid fa-star star" id="star4" onmouseover="colorStar(4)" onclick ="setNote(4)"></i>
+                        <i class="fa-solid fa-star star" id="star5" onmouseover="colorStar(5)" onclick ="setNote(5)"></i>
+                        <button id="note">Noter</button>
                         </div>
+                        
                     </div>
                 </div>
             </div>
@@ -101,6 +103,7 @@
             
 
         </section>
+<script src="../js/mark.js"></script>
 <script src="../js/events.js"></script>
 <script src="../js/ajax.js"></script>
 <script src="../js/utils.js"></script>           
