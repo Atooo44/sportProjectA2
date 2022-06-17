@@ -10,7 +10,15 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"
+        integrity="sha256-x3YZWtRjM8bJqf48dFAv/qmgL68SI4jqNWeSLMZaMGA=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -52,14 +60,14 @@
                             <i class="fa-solid fa-pen-to-square "></i>
                         </div>
                         <div class="personal">
-                            <div class="name">
+                            <div class="name"  id="user_name">
                                 Jane Loacart
                             </div>
-                            <div class="mail">
+                            <div class="mail" id="user_mail">
                                 <span>Email : </span> jane@locart.gmail.com
                             </div>
                             <div class="password">
-                                <span>Mot de passe : </span> **************
+                                <span>Mot de passe : </span> <input type="password" readonly value="**************" id="user_password"> 
                             </div>
                         </div>
 
@@ -67,15 +75,15 @@
                     <div class="complementary">
                         <div class="age column">
                             <span>Age</span>
-                            <p>23 ans</p>
+                            <input id="user_age" type="text" readonly value="23 ans">
                         </div>
                         <div class="city column">
                             <span>Ville</span>
-                            <p>Nantes</p>
+                            <input id="user_city" type="text" readonly value="Nantes">
                         </div>
                         <div class="fit column">
                             <span>Forme physique</span>
-                            <p>Athlétique</p>
+                            <input id="user_fit" type="text" readonly value="Athlétique">
                         </div>
                     </div>
                     <div class="mark">
@@ -92,13 +100,21 @@
             </div>
 
             <div class="modify">
-                <button>Modifier le profil</button>
+                <button id="edit_btn">Editez le profil</button>
             </div>
             
 
         </section>
-           
+<script src="../js/events.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/utils.js"></script>           
 <script>
+    window.onload = function(){
+        loadUser();
+    }
+    window.onbeforeunload = function(){
+        loadUser();
+    }
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
     darkmode.onclick = function(){

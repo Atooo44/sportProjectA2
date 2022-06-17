@@ -22,6 +22,19 @@
         case $requestMethod == "POST" && $requestRessource == "login":
             $res_check_user = check_user($db, $_POST['mail'], $_POST['password']);
             echo json_encode($res_check_user);
+            break;
+        
+        case $requestMethod == "GET" && $requestRessource == "retrieve":
+            $res_retrieve_user = retrieve_user($db, $_GET['mail']);
+            echo json_encode($res_retrieve_user);
+            break;
+        
+        case $requestMethod == "PUT" && $requestRessource == "edit":
+            parse_str(file_get_contents('php://input'), $_PUT);
+            $res_edit_user = edit_user($db, $_PUT['age'], $_PUT['password'], $_PUT['city'], $_PUT['fit'], $_PUT['mail']);
+            echo json_encode($res_edit_user);
+            break;
+            
         default:
             # code...
             break;

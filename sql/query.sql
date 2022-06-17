@@ -1,1 +1,1 @@
-INSERT INTO location (city) VALUES ('Nantes')
+UPDATE users set city = 'Nantes', age=33 WHERE (mail = 'antoine.sdmir@gmail.com')

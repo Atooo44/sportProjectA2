@@ -143,7 +143,48 @@
             $response['error'] = "L'email n'est associé à aucun compte";
         }
         return $response;
-        
+    }
 
+    //** Function that retrieve user informations */
+    function retrieve_user($db, $mail){
+        $request = "SELECT * FROM users WHERE (users.mail = :mail)";    
+        $statement = $db->prepare($request);
+        $statement->bindParam(':mail', $mail);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    //** Function that edit a user profile with given arguments */
+    function edit_user($db, $age, $password, $city, $fit, $mail){
+        $response = array();
+        try {
+            isCityExists($db, $city);
+            $hidden_password = password_hash("**************", PASSWORD_DEFAULT);
+            if (!password_verify($password, $hidden_password)) {
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $request = "UPDATE users set city = :cityname, age = :age_value, password = :password_value, fit = :fit_value  WHERE (mail = :mail)";
+                $statement = $db->prepare($request);
+                $statement->bindParam(':password_value', $password);
+            } else {
+                $password = password_hash($password, PASSWORD_DEFAULT);
+                $request = "UPDATE users set city = :cityname, age = :age_value, fit = :fit_value  WHERE (mail = :mail)";
+                $statement = $db->prepare($request); 
+            }
+            $statement->bindParam(':mail', $mail);
+            $statement->bindParam(':fit_value', $fit);
+            $statement->bindParam(':age_value', $age);
+            $statement->bindParam(':cityname', $city);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['error'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
     }
 ?>

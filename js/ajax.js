@@ -71,11 +71,13 @@ function httpErrors(errorCode)
 
 function displayError(message){
 
-  let error_balise = document.createElement('section')
-  error_balise.className = 'container alert alert-error'
+  
+
+  let error_balise = document.createElement('div')
   error_balise.id = "error_section"
   error_balise.innerHTML = message
-  document.querySelector("body > div > form.login.form").before(error_balise);
+  error_balise.style = "color: red;";
+  document.querySelector("#signup-wrapper > div:nth-child(4)").before(error_balise);
   
 
 }
@@ -106,7 +108,7 @@ function createSessionLogin(response){
 
   if (response['isSuccess']) {
       addUserCookie(response['id']);
-      //window.location.href = "index.php"
+      window.location.href = "account.php"
       return true
   } else {
     displayError(response['error'])
@@ -114,4 +116,61 @@ function createSessionLogin(response){
   }
 }
 
+function loadUser() {
+
+  console.log(document.cookie);
+  let cookie = document.cookie.split('=')[1];
+  ajaxRequest(
+    'GET', 
+    `request.php/retrieve/?mail=${cookie}`, 
+    displayUserAccount,
+    undefined
+  );
+}
+
+function displayUserAccount(response){
+
+  document.getElementById('user_mail').innerHTML = "<span>Email : </span>" + response[0]['mail']
+  document.getElementById('user_name').innerHTML = response[0]['first_name'] + ' ' + response[0]['last_name']
+  document.getElementById('user_city').value = response[0]['city'];
+  var inputs = document.querySelectorAll('input[type="text"]');
+  var input_password = document.querySelectorAll('input[type="password"]');
+  let savebutton = document.getElementById('edit_btn');
+  var readonly = true;
+  savebutton.addEventListener('click',function(){
+    
+    for (var i=0; i<inputs.length; i++) {
+    inputs[i].toggleAttribute('readonly');
+    };
+    for (var i=0; i<input_password.length; i++) {
+      input_password[i].toggleAttribute('readonly');
+      };
+   if (savebutton.innerHTML == "Editez le profil") {
+      savebutton.innerHTML = "Enregistrer";
+    } else {
+      ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}`)
+      savebutton.innerHTML = "Editez le profil";
+      let success_message = document.createElement('div')
+      success_message.className = "alert alert-success"
+      success_message.id = "success_message"
+      success_message.innerHTML = "Votre profil a été modifié avec succès";
+      document.querySelector("body > section > div.parent > div.div2 > div.identity").before(success_message);
+      setTimeout(() =>
+      {
+        $('#success_message').hide();
+      }, 3500);
+    }   
+  });
+
+  if (response[0]['fit'] == '') {
+    document.getElementById('user_fit').value = "❌"
+  } else {
+    document.getElementById('user_fit').value = response[0]['fit']
+  }
+  if (response[0]['age'] == '') {
+    document.getElementById('user_age').value = "❌"
+  } else {
+    document.getElementById('user_age').value = response[0]['age'] + " ans"
+  }
+}
 
