@@ -85,11 +85,11 @@
                     <div class="mark">
                         <span> Noter l'Application</span>
                         <div class="note">
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
-                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star" id="star1"></i>
+                        <i class="fa-solid fa-star" id="star2"></i>
+                        <i class="fa-solid fa-star" id="star3"></i>
+                        <i class="fa-solid fa-star" id="star4"></i>
+                        <i class="fa-solid fa-star" id="star5"></i>
                         </div>
                     </div>
                 </div>

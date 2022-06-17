@@ -88,6 +88,7 @@
     color: var(--green);
 }
 
+
 .identity{
     display: flex;
     flex-direction: row;
@@ -125,6 +126,7 @@
 
 .complementary span{
     font-weight: 500;
+    padding: 5px 8px;
 }
 
 .column{
@@ -159,3 +161,31 @@
     background-color: var(--green3);
 }
 
+
+input:read-only{
+    background-color: var(--white);
+    border: none;
+  }
+
+  input:read-only:focus{
+    outline: none;
+  }
+
+input{
+    background-color: var(--white);
+    border: solid 3px var(--blue2);
+    border-radius: 5px;
+    padding: 5px 8px;
+}
+
+.alert{
+    background-color: rgba(0, 128, 0, 0.51);
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2em;
+    border-radius: 10px;
+    color: var(--black);
+    font-weight: 500;
+}
