@@ -71,38 +71,27 @@ function httpErrors(errorCode)
 
 function displayError(message){
 
-  
+  if (document.body.contains(document.getElementById('error_section'))) {
+    document.getElementById('error_section').remove();
+  }
 
   let error_balise = document.createElement('div')
   error_balise.id = "error_section"
-  error_balise.innerHTML = message
+  error_balise.innerHTML = message['message']
   error_balise.style = "color: red;";
-  document.querySelector("#signup-wrapper > div:nth-child(4)").before(error_balise);
+  if (message['type'] == 'login') {
+    document.querySelector("#login_submit").before(error_balise);
+  } else {
+    document.querySelector("#login_submit").before(error_balise);
+  }
   
-
 }
 
 function createSession(response){
   let check = checkRegisterFields();
+  check['type'] == 'register'
   if (!check['isSuccess']){
-    displayError(check['message']);
-    return false
-  }
-
-  if (response['isSuccess']) {
-      addUserCookie(response['id']);
-      //window.location.href = "index.php"
-      return true
-  } else {
-    displayError(response['error'])
-    return false
-  }
-}
-
-function createSessionLogin(response){
-  let check = checkLoginFields();
-  if (!check['isSuccess']){
-    displayError(check['message']);
+    displayError(check);
     return false
   }
 
@@ -111,7 +100,25 @@ function createSessionLogin(response){
       window.location.href = "account.php"
       return true
   } else {
-    displayError(response['error'])
+    displayError(response)
+    return false
+  }
+}
+
+function createSessionLogin(response){
+  let check = checkLoginFields();
+  check['type'] = 'login'
+  if (!check['isSuccess']){
+    displayError(check);
+    return false
+  }
+
+  if (response['isSuccess']) {
+      addUserCookie(response['id']);
+      window.location.href = "account.php"
+      return true
+  } else {
+    displayError(response)
     return false
   }
 }

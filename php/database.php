@@ -44,7 +44,7 @@
             }
         }
         catch (PDOException $exception){
-            $response['error'] = $exception->getMessage();
+            $response['message'] = $exception->getMessage();
             $response['isSuccess'] = false;
             return $response;
         }
@@ -65,7 +65,7 @@
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         }
         catch (PDOException $exception){
-            $response['error'] = $exception->getMessage();
+            $response['message'] = $exception->getMessage();
             $response['isSuccess'] = false;
             return $response;
         }
@@ -100,12 +100,12 @@
                 return $response;
             }
             catch (PDOException $exception){
-                $response['error'] = $exception->getMessage();
+                $response['message'] = $exception->getMessage();
                 $response['isSuccess'] = false;
                 return $response;
             }
         }else {
-            $response['error'] = "L'adresse e-mail est déjà lié à un compte existant";
+            $response['message'] = "L'adresse e-mail est déjà lié à un compte existant";
             $response['isSuccess'] = false;
             return $response;
       }
@@ -123,7 +123,7 @@
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         }
         catch (PDOException $exception){
-            $response['error'] = $exception->getMessage();
+            $response['message'] = $exception->getMessage();
             $response['isSuccess'] = false;
             return $response;
         }
@@ -135,12 +135,12 @@
                 
             } else {
                 $response['isSuccess'] = false;
-                $response['error'] = "Le mot de passe est incorrecte";
+                $response['message'] = "Le mot de passe est incorrecte";
             }
             
         } else {
             $response['isSuccess'] = false;
-            $response['error'] = "L'email n'est associé à aucun compte";
+            $response['message'] = "L'email n'est associé à aucun compte";
         }
         return $response;
     }
@@ -182,7 +182,7 @@
             return $response;
 
         } catch(PDOException $exception) {
-            $response['error'] = $exception->getMessage();
+            $response['message'] = $exception->getMessage();
             $response['isSuccess'] = false;
             return $response;
         }
