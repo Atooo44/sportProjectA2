@@ -1,0 +1,301 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+    --white: #F7F8FC;
+    --black: #32353E;
+    --blue: #B1C8EA;
+    --blue2: #77A0F2;
+    --green: #9FBE22;
+    --green2: #acce24;
+    --green3: #8eaa1f;
+    --yellow: #F0D233;
+}
+
+.dark{
+    --black: #fff;
+    --white: #111638;
+    --black2: #1a155e;
+    --red: #710101;
+    --pink: #de5688;
+    --purple: #932aab;
+    --green2:#09482d;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  height: 100vh;
+  width: 100%;
+  background-color: #ebeff5;
+}
+
+.container {
+  position: relative;
+  width: 325px;
+}
+
+.svg-icon {
+
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.svg-icon:hover {
+  transform: scale(1.05);
+}
+
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+  fill: #ffffff;
+}
+
+.login,
+.signup {
+  width: 100%;
+  display: grid;
+  grid-gap: 15px;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.06);
+}
+/* RAJOUTER CA */
+.signup{
+    overflow-y: scroll;
+    -ms-overflow-style: none;  
+    scrollbar-width: none; 
+}
+
+.signup::-webkit-scrollbar {
+    display: none;
+  }
+
+
+
+.login_icon,
+.signup_icon {
+  font-size: 1.125rem;
+  font-weight: bold;
+  line-height: 1;
+}
+.login_title,
+.signup_title {
+  margin-bottom: 17.5px;
+  font-size: 25px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.login_row,
+.signup_row {
+  display: grid;
+  grid-gap: 8px;
+}
+.login_label,
+.signup_label {
+  font-size: 16px;
+  font-weight: 600;
+}
+.login_input, .login__button,
+.signup_input,
+.signup_button {
+  height: 40px;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.login_input,
+.signup_input {
+  padding: 0 17.5px;
+  background-color: transparent;
+}
+.login_button,
+.signup_button {
+  height: 45px;
+  font-size: 0.702rem;
+  letter-spacing: 0.075rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.login_link,
+.signup_link {
+  font-size: 0.702rem;
+  text-align: center;
+  cursor: pointer;
+}
+
+
+.login {
+  background: var(--white);
+  box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.login_icon {
+  color: #3f66ff;
+}
+.login_title {
+  color: var(--black);
+}
+.login_label {
+  color: var(--black);
+}
+.login_input {
+  border: 3px solid var(--blue2);
+}
+
+.login_button{
+    border: 3px solid var(--green)
+}
+
+.login_input:focus{
+    outline: none;
+}
+
+.login_input {
+  color: var(--black);
+}
+.login_input::placeholder {
+  color: #9791b4;
+}
+.login_button {
+  background-color: var(--green);
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+.login_button:hover {
+    background-color: var(--green2);
+    border: var(--green2);
+}
+
+.login_button:active{
+    background-color: var(--green3);
+    border: var(--green3);
+}
+
+.login_link {
+  color: #b4afc9;
+}
+
+.signup {
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    transform: translateY(-50%);
+    width: 110%;
+    height: 470px;
+    transform-origin: top right;
+    transition: 250ms;
+    background-color: var(--green);
+}
+.signup_wrapper {
+  width: 100%;
+  display: grid;
+  grid-gap: 15px;
+  visibility: visibility;
+  opacity: 1;
+  transition: 250ms cubic-bezier(0.17, 0.67, 0.68, 1.39) 100ms;
+}
+.signup_icon {
+  color: #ffffff;
+}
+.signup_title {
+  color: #ffffff;
+  font-size: 25px;
+  font-weight: 700px;
+}
+.signup_row-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.signup_trigger-fixed {
+  position: absolute;
+  transition: 100ms cubic-bezier(0.17, 0.67, 0.68, 1.39) 100ms;
+}
+.signup_label {
+  color: #ffffff;
+}
+.signup_input, .signup_button {
+  border: 3px solid #ffffff;
+  outline-color: #ffffff;
+}
+.signup_input {
+  color: white;
+  caret-color: #ffffff;
+}
+.signup_input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.signup_button {
+  background-color: #ffffff;
+  color: var(--green);
+}
+
+.signup_button:hover {
+    background-color: #f7f7f7;
+    color: var(--green);
+  }
+
+  .signup_button:active {
+    background-color: #ffffff;
+    color: var(--green);
+  }
+
+.signup_link {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.is-form-open {
+  box-shadow: 0px 5px 5px rgb(0 0 0 / 25%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: -15px;
+  top: -15px;
+  width: 70px;
+  height: 70px;
+  transform: translateY(0);
+  overflow: hidden;
+  border-radius: 24px;
+  transform-origin: top right;
+  transition: 250ms cubic-bezier(0.17, 0.67, 0.68, 1.39) 100ms;
+}
+
+.is-wrapper-open {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0.85);
+  transition: 250ms;
+}
+
+.is-trigger-hidden {
+  width: 0;
+  height: 0;
+  opacity: 0;
+  right: -100%;
+  transition: 100ms cubic-bezier(0.15, 0.65, 0.65, 1.25);
+}
+
+.create{
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.new_account{
+    color: var(--green);
+    cursor: pointer;
+}
+
+.signup_trigger{
+    margin-left: auto;
+}
