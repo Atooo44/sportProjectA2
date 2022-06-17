@@ -135,7 +135,7 @@
                 
             } else {
                 $response['isSuccess'] = false;
-                $response['message'] = "Le mot de passe est incorrecte";
+                $response['message'] = "Le mot de passe est incorrect";
             }
             
         } else {

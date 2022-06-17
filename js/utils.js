@@ -19,13 +19,13 @@ function checkRegisterFields(){
     if (document.getElementById('first_name').value == '' || document.getElementById('last_name').value == "" || document.getElementById('city').value == "" || document.getElementById('password').value == "") {
         return {
             "isSuccess": false,
-            "message": "Une erreur est survenue, merci de veiller a remplir tout les champs."
+            "message": "Merci de veiller a remplir tout les champs."
         }   
     }
     else if (document.getElementById('mail').value == '' || !(document.getElementById('mail').value).includes("@")) {
         return {
             "isSuccess": false,
-            "message": "Une erreur est survenue, merci de vérifier le champ 'mail'. "
+            "message": "Merci de vérifier le champ e-mail'. "
         }
     } else {
         return {
@@ -40,13 +40,13 @@ function checkLoginFields(){
     if (document.getElementById('password_input').value == '' || document.getElementById('email_input').value == "") {
         return {
             "isSuccess": false,
-            "message": "Une erreur est survenue, merci de veiller a remplir tout les champs."
+            "message": "Merci de veiller a remplir tout les champs."
         }   
     }
     else if (document.getElementById('email_input').value == '' || !(document.getElementById('email_input').value).includes("@")) {
         return {
             "isSuccess": false,
-            "message": "Une erreur est survenue, merci de vérifier le champ 'mail'. "
+            "message": "Merci de vérifier le champ e-mail. "
         }
     } else {
         return {
