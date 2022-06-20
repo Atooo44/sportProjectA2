@@ -31,110 +31,42 @@
             <!-- commentaire -->
             <div class="main">
                 <h2>Trouver un <span>match</span><br> près de chez vous</h2><br>
-                <form action="" method="post" class="search_form" >
+                <form action="" method="post" class="search_form" id="searchForm" >
                         <input type="text" name="search" placeholder="Football, Tennis, Nantes, Caen..." class="searchbar" id="searchbar">
-                        <div class="btn">
+                        <div class="btn" id="searchButton">
                             <i class="submit_button fas fa-search fa-2xl"></i>
                         </div>
                         </input>
                 </form>
-
-                <div class="carousel">
-                    <div class="row">
-                        <div class="swiper">
-                            <ul>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Football</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/football.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Tennis</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/tennis.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Babyfoot</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/babyfoot.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Rugby</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/rugby.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Voleyball</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/volleyball.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="sport">
-                                        <div class="detail">
-                                            <div class="rating"></div>
-                                            <h3>Basketball</h3>
-                                        </div>
-                                        <div class="minia">
-                                            <a href="#">
-                                                <img src="../ressources/basketball.png">
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                            <div class="dots">
-                                <span class="current"></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-                    </div>
+                <div class="result" id="result">
+                    <ul class="sport_result" id="sport_result">
+                        <li>Football</li>
+                        <li>Tennis</li>
+                        <li>Babyfoot</li>
+                        <li>Basketball</li>
+                        <li>Volleyball</li>
+                        <li>Rugby</li>
+                        
+                    </ul>
+                    <hr>
+                    <ul id="cities">
+                    </ul>
+                </div>
+                <div class="img">
+                    <img src="../ressources/football.png">
+                    <img src="../ressources/basketball.png">
+                    <img src="../ressources/babyfoot.png">
+                    <img src="../ressources/rugby.png">
+                    <img src="../ressources/tennis.png">
+                    <img src="../ressources/volleyball.png">
                 </div>
             </div>
         </section>
+<script src="../js/searchbar.js"></script>     
 <script src="../js/ajax.js"></script>       
 <script src="../js/events.js"></script>
-<script src="../js/utils.js"></script>      
+<script src="../js/utils.js"></script>  
+
 <script>
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
