@@ -10,6 +10,10 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
+
         <link href="../css/default.css" rel="stylesheet">
         <link href="../css/match.css" rel="stylesheet">
         <title> Sportmate</title>
@@ -43,11 +47,14 @@
 
                 <div class="div2">
                     <div class="add">
-                        <img src="../ressources/plus.svg">
+                        <img src="../ressources/plus.svg" id="add_event">
                     </div>
 
                     <div class="card_event">
                         <form>
+                            <div class="close">
+                                <img src="../ressources/moins.svg">
+                            </div>
                             <div class="first">
                                 <select>
                                     <option value="football">Football</option>
@@ -58,26 +65,28 @@
                                     <option value="volleyball">Volleyball</option>
                                 </select>
                                 <div class="number">
-                                    <input type="number" placeholder="9">
+                                    <input type="number" placeholder="9" min="1">
                                         <span>personnes</span>
                                     </input>
                                 </div>
                                 <div class="price">
-                                    <input type="text" placeholder="12">
-                                    €
+                                    <input type="number" placeholder="12" min="0">
+                                    <span>€</span>
                                     </input>
                                 </div>
                             </div>
                             <div class="second">
-                                <input type="text" placeholder="Ville">
+                                <input type="text" placeholder="Ville" class="city">
                                 </input>
-                                <input  type="date">
-                                <input type="time">
+                                <input  type="date" class="date">
+                                <input type="time" class="hour">
                             </div>
                             <div class="third">
-                                <input type="text" placeholder="90">
-                                min
-                                </input>
+                                <div class="time">
+                                    <input type="number" placeholder="90" min="0">
+                                    <span>min</span>
+                                    </input>
+                                </div>
                                 <button>
                                     CRÉER L'ÉVÈNEMENT
                                 </button>
@@ -86,12 +95,73 @@
                             
                         </form>
                     </div>
+                    <div class="coming">
+                        <h2> Mes matchs à venir</h2>
+                        <div class="card_double">
+                            <div class="visible">
+                                <div class="column1">
+                                    <div class="title">
+                                        <img src="../ressources/logo_football.svg">
+                                        &nbsp;Match de Football
+                                    </div>
+                                    <p>Le 25/07/2022 de 18h00 à 20h00</p>
+                                    <p><span>Prix : </span> 22€ </p>
+                                </div>
+                                <div class="column2">
+                                <p><span>Organisateur : </span> Pascal Dupras</p>
+                                <p><span>Joueurs inscrits : </span> 9/22</p>
+                                <div id="toggle" onclick="show()" class="arrow">
+                                    <img src="../ressources/arrow.svg" >
+                                </div>
+                                </div>
+                            </div>
+                            
+                            <div class="players">
+                                <div class="column c1">
+                                    <div class="name">Pascal Dupras</div>
+                                    <div class="name">Pierre Caille</div>
+                                    <div class="name">Justin Malon</div>
+                                    <div class="name">Étienne Dupuis</div>
+                                </div>
+                                <div class="column c2">
+                                    <div class="name">Maxime Lepas</div>
+                                    <div class="name">Maxence Comil</div>
+                                    <div class="name">Jules Foula</div>
+                                    <div class="name">Julien Tomar</div>
+                                </div>
+                                <div class="column c3">
+                                <div class="name">Maxime Lepas</div>
+                                    <div class="name">Maxence Comil</div>
+                                    <div class="name">Jules Foula</div>
+                                    <div class="name">Julien Tomar</div>
+                                </div>
+                                <div class="column c4">
+                                    <div class="name">Maxime Lepas</div>
+                                    <div class="name">Maxence Comil</div>
+                                    <div class="name">Jules Foula</div>
+                                    <div class="name">Julien Tomar</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="passed">
+                        <h2> Mes matchs passés</h2>
+                            <div class="organizer">
+                                <h3> Organisateur</h3>
+                            </div>
+                            <div class="player">
+                                <h3> Joueur</h3>
+                                
+                            </div>
+                    </div>
+                    
                 </div>
                                 
             </div>
 
         </section>
-           
+
+        <script src="../js/card.js"></script>        
 <script>
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
