@@ -46,17 +46,10 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                 </div>
 
                 <div class="div2">
-                    <div class="add">
-                        <img src="../ressources/plus.svg" id="add_event">
-                    </div>
-
-                    <div class="card_event">
-                        <form>
-                            <div class="close">
-                                <img src="../ressources/moins.svg">
-                            </div>
+                    <div class="card_event" id="card_id">
+                        <form id="form_ev">
                             <div class="first">
-                                <select>
+                                <select id="choosed_sport">
                                     <option value="football">Football</option>
                                     <option value="tennis">Tennis</option>
                                     <option value="babyfoot">Babyfoot</option>
@@ -65,29 +58,29 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                                     <option value="volleyball">Volleyball</option>
                                 </select>
                                 <div class="number">
-                                    <input type="number" placeholder="9" min="1">
+                                    <input type="number" placeholder="9" min="1" id="choosed_amount_player">
                                         <span>personnes</span>
                                     </input>
                                 </div>
                                 <div class="price">
-                                    <input type="number" placeholder="12" min="0">
+                                    <input type="number" placeholder="12" min="0" id="choosed_price">
                                     <span>€</span>
                                     </input>
                                 </div>
                             </div>
                             <div class="second">
-                                <input type="text" placeholder="Ville" class="city">
+                                <input type="text" placeholder="Ville" class="city" id="choosed_city">
                                 </input>
-                                <input  type="date" class="date">
-                                <input type="time" class="hour">
+                                <input  type="date" class="date" id="choosed_date">
+                                <input type="time" class="hour" id="choosed_hours">
                             </div>
                             <div class="third">
                                 <div class="time">
-                                    <input type="number" placeholder="90" min="0">
+                                    <input type="number" placeholder="90" min="0" id="choosed_duration">
                                     <span>min</span>
                                     </input>
                                 </div>
-                                <button>
+                                <button id="search_evenement" type="button">
                                     CRÉER L'ÉVÈNEMENT
                                 </button>
                                 

@@ -38,6 +38,21 @@ $('#date_list').on('click', () => {
     displayDates();
 })
 
+
+$('#search_evenement').on('click', () => {
+    let selected_sport = document.getElementById('choosed_sport').value
+    let selected_amount_players = document.getElementById('choosed_amount_player').value
+    let selected_price = document.getElementById('choosed_price').value
+    let selected_city = document.getElementById('choosed_city').value
+    let selected_date = document.getElementById('choosed_date').value
+    let selected_hours = document.getElementById('choosed_hours').value
+    let selected_duration = document.getElementById('choosed_duration').value
+    let mail = document.cookie.split('=')[1]
+
+    
+    ajaxRequest('POST', 'request.php/addEvenement', displayEventCreationSuccess, `sport=${selected_sport}&amount_players=${parseInt(selected_amount_players)}&price=${parseFloat(selected_price)}&city=${selected_city}&date=${selected_date + ' ' +selected_hours + ':00'}&duration=${parseFloat(selected_duration)}&mail=${mail}`)
+})
+
 $('#searchbar').on('keyup', () => {
     let selected_sport = document.getElementById('sport_list').value
     let selected_city = document.getElementById('sport_list').value

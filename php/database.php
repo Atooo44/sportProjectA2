@@ -208,10 +208,44 @@
     //** Function that return matchs according to a query */
     function search_matchs($db, $sport, $city, $date, $price, $place, $query){
         $response = array();
+        if ($sport == 'Tous les sports') {
+            $sport = '*';
+        }
         try { 
-            $request = "SELECT date, city, id, sport, max_player, price, length from match where city LIKE :query OR sport LIKE :query";
+            $request = "SELECT date, city, id_match, sport, max_player, price, length from match where city LIKE :query OR sport LIKE :query";
             $statement = $db->prepare($request);
             $statement->bindParam(':query', $query);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            $response['result'] = $result;
+            $response['isSuccess'] = true;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+    //** Function that create an evenement */
+    function add_evenement($db, $sport, $amount_players, $price, $city, $date, $duration, $mail){
+        $response = array();
+        isCityExists($db, $city);
+        try { 
+            $request = "INSERT INTO match (sport, max_player, date, length, price, score, best_player, mail, city) VALUES (:sport,:max_player, :date,:length, :price, '0-0', 'undef', :mail, :city)";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':sport', $sport);
+            $statement->bindParam(':max_player', intval($amount_players));
+            $statement->bindParam(':price', $price);
+            $statement->bindParam(':city', $city);
+            $statement->bindParam(':date', $date);
+            $statement->bindParam(':length', floatval($duration));
+            $statement->bindParam(':price', floatval($price));
+            $statement->bindParam(':mail', $mail);
+            $statement->bindParam(':city', $city);
+            $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
 
             $response['result'] = $result;
@@ -221,6 +255,6 @@
             $response['message'] = $exception->getMessage();
             $response['isSuccess'] = false;
             return $response;
-        }
+        } 
     }
 ?>

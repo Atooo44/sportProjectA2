@@ -1,1 +1,1 @@
-UPDATE users set city = 'Nantes', age=33 WHERE (mail = 'antoine.sdmir@gmail.com')
+SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length,  u.first_name from match m, users u where m.city LIKE 'Foo' OR m.sport LIKE 'Foo'

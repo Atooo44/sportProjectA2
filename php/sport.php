@@ -59,7 +59,7 @@
                             <button>Retirer les filtres </button>
                         </div>
                     </div>
-                    <div class="div2"> 
+                    <div class="div2" id="cards_group"> 
                         <div class="card">
                             <div class="left_card">
                                 <div class="row_info title"><i class="fa-solid fa-futbol fa-xl"></i><h2>&nbsp;&nbsp;Football</h2></div><br>

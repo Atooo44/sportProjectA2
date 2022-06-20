@@ -40,11 +40,17 @@
             break;
 
         case $requestMethod == "GET" && $requestRessource == "search":
-            $res_search_matchs = search_matchs($db, $_GET['sport'], $_GET['city'], $_GET['date'], $_GET['price'], $_GET['place'], $_GET['query']);
+            $res_search_matchs = search_matchs($db, $_GET['sport'], $_GET['city'], $_GET['date'], $_GET['price'], $_GET['place'], '%'.$_GET['query'].'%');
             echo json_encode($res_search_matchs);
-        default:
-            # code...
             break;
+        
+        case $requestMethod == "POST" && $requestRessource == "addEvenement":
+            $res_add_evenement = add_evenement($db, $_POST['sport'], $_POST['amount_players'], $_POST['price'], $_POST['city'], $_POST['date'], $_POST['duration'], $_POST['mail']);
+            echo json_encode($res_add_evenement);
+            break;
+        default:
+        # code...
+        break;
     }
 
     

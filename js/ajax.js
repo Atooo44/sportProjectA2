@@ -229,6 +229,39 @@ function displayDates(){
   }
 }
 
-function displaySearchResults(){
+function displaySearchResults(response){
+  response['result'].forEach(element => {
+    document.getElementById('cards_group').innerHTML += `<div class="card">
+    <div class="left_card">
+        <div class="row_info title"><i class="fa-solid fa-futbol fa-xl"></i><h2>&nbsp;&nbsp;Football</h2></div><br>
+        <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>${element['city']} </p></div><br>
+        <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} </p></div><br>
+        <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De 18h00 à 20h00 </p></div>
+    </div>
+    <div class="right_card">
+        <p><span>Organisateur :</span> Pascal Dupras</p><br>
+        <p><span>Joueurs inscrits :</span> 9/22</p><br>
+        <p><span>Prix :</span> ${element['price']}€</p><br>
+        <button>S'INSCRIRE</button>
+    </div>
+</div>`
+  });
+}
 
+function displayEventCreationSuccess(response){
+  let success_message = document.createElement('div')
+  success_message.id = "success_message"
+  success_message.className = "alert alert-success"
+  let check = checkEventCreationFields()
+  if (!check['isSuccess']) {
+    success_message.className = "error"
+    success_message.innerHTML = check['message'];
+  } else {
+    success_message.innerHTML = "L'événement a été créer avec succès";
+  }  
+  document.querySelector("body > section > div > div.div2 > div.add").before(success_message);
+  setTimeout(() =>
+  {
+    $('#success_message').hide();
+  }, 3500);
 }

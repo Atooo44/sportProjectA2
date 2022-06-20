@@ -54,3 +54,16 @@ function checkLoginFields(){
         }
     }
 }
+
+function checkEventCreationFields(){
+    if (document.getElementById('choosed_amount_player').value == NaN || document.getElementById('choosed_price').value == '' || document.getElementById('choosed_city').value == '' || document.getElementById('choosed_date').value == '' || document.getElementById('choosed_hours').value == '' || document.getElementById('choosed_duration').value == NaN) {
+        return {
+            "isSuccess": false,
+            "message": "Merci de remplir tous les champs."
+        }
+    } else {
+        return {
+            "isSuccess": true,
+        }
+    }
+}
