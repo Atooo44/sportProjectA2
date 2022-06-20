@@ -34,13 +34,27 @@
             <!-- commentaire -->
 
                 <div class="search">
-                    <form action="" method="post" class="search_form" >
+                    <form action="" method="post" class="search_form" id="searchForm" >
                             <input type="text" name="search" placeholder="Football, Tennis, Nantes, Caen..." class="searchbar" id="searchbar">
-                            <div class="btn">
+                            <div class="btn" id="searchButton">
                                 <i class="submit_button fas fa-search fa-xl"></i>
                             </div>
                             </input>
                     </form>
+                    <div class="result" id="result">
+                    <ul class="sport_result" id="sport_result">
+                        <li>Football</li>
+                        <li>Tennis</li>
+                        <li>Babyfoot</li>
+                        <li>Basketball</li>
+                        <li>Volleyball</li>
+                        <li>Rugby</li>
+                        
+                    </ul>
+                    <hr>
+                    <ul id="cities">
+                    </ul>
+                </div>
                 </div>
                 
                 <div class="parent">
@@ -82,7 +96,8 @@
 <script src="../js/ajax.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/events.js"></script>                     
-<script src="../js/utils.js"></script>     
+<script src="../js/utils.js"></script>    
+<script src="../js/searchbar.js"></script>   
 <script>
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');

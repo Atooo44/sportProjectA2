@@ -231,15 +231,19 @@ function displayDates(){
 
 function displaySearchResults(response){
   response['result'].forEach(element => {
+    console.log(element['date'].split(' ')[1])
+    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+    console.log(match_hours.getMinutes())
+    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
     document.getElementById('cards_group').innerHTML += `<div class="card">
     <div class="left_card">
-        <div class="row_info title"><i class="fa-solid fa-futbol fa-xl"></i><h2>&nbsp;&nbsp;Football</h2></div><br>
+        <div class="row_info title"><img src="../ressources/logo_${element['sport']}.svg"><h2>&nbsp;&nbsp;${element['sport']}</h2></div><br>
         <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>${element['city']} </p></div><br>
         <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} </p></div><br>
-        <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De 18h00 à 20h00 </p></div>
+        <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)} </p></div>
     </div>
     <div class="right_card">
-        <p><span>Organisateur :</span> Pascal Dupras</p><br>
+        <p><span>Organisateur :</span> ${element['first_name']} ${element['last_name']}</p><br>
         <p><span>Joueurs inscrits :</span> 9/22</p><br>
         <p><span>Prix :</span> ${element['price']}€</p><br>
         <button>S'INSCRIRE</button>
@@ -264,4 +268,36 @@ function displayEventCreationSuccess(response){
   {
     $('#success_message').hide();
   }, 3500);
+}
+
+function displayCities2(response){
+  document.getElementById('cities').innerHTML="";
+  for (var i = 0; i<response['result'].length; i++){
+    let isExist = false;
+    
+    if (!isExist) {
+      var opt = document.createElement('li');
+      opt.value = response['result'][i]['city'];
+      opt.innerHTML = response['result'][i]['city'];
+      document.getElementById('cities').innerHTML+="<li>"+ response['result'][i]['city'] + "</li>";
+    }
+  }
+
+
+  let listItems2 = document.getElementsByClassName("sport_result")[0].getElementsByTagName("li");
+
+  
+  for(let i = 0; i < listItems2.length; i++){
+      listItems2[i].onclick = function(){
+          document.getElementById("searchbar").value = listItems2[i].innerText;
+      }
+  }
+
+  let listItems1 = document.getElementsByClassName("cities")[0].getElementsByTagName("li");
+
+for(let i = 0; i < listItems1.length; i++){
+    listItems1[i].onclick = function(){
+        document.getElementById("searchbar").value = listItems1[i].innerText;
+    }
+}
 }

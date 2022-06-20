@@ -212,7 +212,7 @@
             $sport = '*';
         }
         try { 
-            $request = "SELECT date, city, id_match, sport, max_player, price, length from match where city LIKE :query OR sport LIKE :query";
+            $request = "SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, u.first_name, u.last_name from match m, users u where m.city LIKE :query OR m.sport LIKE :query AND m.mail = u.mail";
             $statement = $db->prepare($request);
             $statement->bindParam(':query', $query);
             $statement->execute();
