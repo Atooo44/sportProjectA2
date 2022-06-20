@@ -49,7 +49,7 @@
                         
                     </ul>
                     <hr>
-                    <ul id="cities">
+                    <ul class="cities" id="cities">
                     </ul>
                 </div>
                 <div class="img">
