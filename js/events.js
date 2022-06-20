@@ -63,3 +63,7 @@ $('#searchbar').on('keyup', () => {
 
     ajaxRequest('GET', `request.php/search/?sport=${selected_sport}&city=${selected_city}&date=${selected_date}&price=${selected_price}&place=${selected_place}&query=${entered_query}`, displaySearchResults,undefined);
 })
+
+window.onload = function(){    
+    ajaxRequest('GET', 'request.php/cities', displayCities2, undefined);
+}
