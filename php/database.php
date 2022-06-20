@@ -187,4 +187,40 @@
             return $response;
         }
     }
+
+    //** Function that return all available cities */
+    function getCities($db){
+        $response = array();
+        try {   
+            $statement = $db->query("SELECT city FROM location");
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+        }
+        catch (PDOException $exception){
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+    //** Function that return matchs according to a query */
+    function search_matchs($db, $sport, $city, $date, $price, $place, $query){
+        $response = array();
+        try { 
+            $request = "SELECT date, city, id, sport, max_player, price, length from match where city LIKE :query OR sport LIKE :query";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':query', $query);
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
 ?>

@@ -34,7 +34,14 @@
             $res_edit_user = edit_user($db, $_PUT['age'], $_PUT['password'], $_PUT['city'], $_PUT['fit'], $_PUT['mail']);
             echo json_encode($res_edit_user);
             break;
-            
+        case $requestMethod == "GET" && $requestRessource == "cities":
+            $res_cities = getCities($db);
+            echo json_encode($res_cities);
+            break;
+
+        case $requestMethod == "GET" && $requestRessource == "search":
+            $res_search_matchs = search_matchs($db, $_GET['sport'], $_GET['city'], $_GET['date'], $_GET['price'], $_GET['place'], $_GET['query']);
+            echo json_encode($res_search_matchs);
         default:
             # code...
             break;

@@ -26,4 +26,25 @@ $('#login_submit').on('click', () => {
     );
 });
 
+$('#city_list').on('click', () => {
+    ajaxRequest('GET', 'request.php/cities', displayCities, undefined)
+})
 
+$('#sport_list').on('click', () => {
+    displaySports();
+})
+
+$('#date_list').on('click', () => {
+    displayDates();
+})
+
+$('#searchbar').on('keyup', () => {
+    let selected_sport = document.getElementById('sport_list').value
+    let selected_city = document.getElementById('sport_list').value
+    let selected_date = document.getElementById('date_list').value
+    let selected_price = document.getElementById('price_list').value
+    let selected_place = document.getElementById('place_list').value
+    let entered_query = document.getElementById('searchbar').value
+
+    ajaxRequest('GET', `request.php/search/?sport=${selected_sport}&city=${selected_city}&date=${selected_date}&price=${selected_price}&place=${selected_place}&query=${entered_query}`, displaySearchResults,undefined);
+})

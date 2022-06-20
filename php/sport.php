@@ -10,7 +10,8 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"
+        integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="anonymous"></script>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
@@ -46,15 +47,15 @@
                     <div class="div1">
                         <div class="filter">
                             <h2>Sport</h2>
-                            <button>Tous les sports <img src="../ressources/arrow.svg" class="arrow"></button>
+                            <select id="sport_list">Tous les sports <img src="../ressources/arrow.svg" class="arrow"></select>
                             <h2>Ville</h2>
-                            <button>Toutes les villes <img src="../ressources/arrow.svg" class="arrow"></button>
+                            <select id="city_list">Toutes les villes <img src="../ressources/arrow.svg" class="arrow"></select>
                             <h2>Période</h2>
-                            <button>Sans <img src="../ressources/arrow.svg" class="arrow"></button>
+                            <select id="date_list">Sans <img src="../ressources/arrow.svg" class="arrow"></select>
                             <h2>Prix</h2>
-                            <input type="range" class="form-range" min="0" max="120" >
+                            <input type="range" id="price_list" class="form-range" min="0" max="120" >
                             <h2>Places</h2>
-                            <input type="range" class="form-range" min="0" max="120" >
+                            <input type="range" id="place_list" class="form-range" min="0" max="120" >
                             <button>Retirer les filtres </button>
                         </div>
                     </div>
@@ -78,7 +79,10 @@
 
 
         </section>
-           
+<script src="../js/ajax.js"></script>
+<script src="../js/search.js"></script>
+<script src="../js/events.js"></script>                     
+<script src="../js/utils.js"></script>     
 <script>
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
