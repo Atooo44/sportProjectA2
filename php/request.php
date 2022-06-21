@@ -16,7 +16,7 @@
 
     switch (true) {
         case $requestMethod == "POST" && $requestRessource == "create":
-            $res_add_user = add_user($db, $_POST['mail'], $_POST['last_name'], $_POST['first_name'], $_POST['password'], $_POST['city']);
+            $res_add_user = add_user($db, $_POST['mail'], $_POST['last_name'], $_POST['first_name'], $_POST['password'], $_POST['city'], $_POST['picture']);
             echo json_encode($res_add_user);
             break;
         case $requestMethod == "POST" && $requestRessource == "login":

@@ -50,12 +50,12 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                         <form id="form_ev">
                             <div class="first">
                                 <select id="choosed_sport">
-                                    <option value="football">Football</option>
-                                    <option value="tennis">Tennis</option>
-                                    <option value="babyfoot">Babyfoot</option>
-                                    <option value="rugby">Rugby</option>
-                                    <option value="basketball">Basketball</option>
-                                    <option value="volleyball">Volleyball</option>
+                                    <option value="Football">Football</option>
+                                    <option value="Tennis">Tennis</option>
+                                    <option value="Babyfoot">Babyfoot</option>
+                                    <option value="Rugby">Rugby</option>
+                                    <option value="Basketball">Basketball</option>
+                                    <option value="Volleyball">Volleyball</option>
                                 </select>
                                 <div class="number">
                                     <input type="number" placeholder="9" min="1" id="choosed_amount_player">

@@ -83,7 +83,7 @@ function displayError(message){
   if (message['type'] == 'login') {
     document.querySelector("#login_submit").before(error_balise);
   } else {
-    document.querySelector("#login_submit").before(error_balise);
+    document.querySelector("#signup_submit").before(error_balise);
   }
   
 }
@@ -145,6 +145,7 @@ function displayUserAccount(response){
   document.getElementById('user_mail').innerHTML = "<span>Email : </span>" + response[0]['mail']
   document.getElementById('user_name').innerHTML = response[0]['first_name'] + ' ' + response[0]['last_name']
   document.getElementById('user_city').value = response[0]['city'];
+  document.querySelector("body > section > div.parent > div.div2 > div.identity > div.photo > img")['src'] = `../ressources/pp${response[0]['profil_picture']}.png`
   var inputs = document.querySelectorAll('input[type="text"]');
   var input_password = document.querySelectorAll('input[type="password"]');
   let savebutton = document.getElementById('edit_btn');
@@ -242,9 +243,16 @@ function displaySearchResults(response){
   //** Manage filters */
   console.log(selected_sport.length)
   if (selected_sport != 'Tous les sports') {
-    console.log('entering sport filter')
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['sport'].toLowerCase() !== selected_sport.toLowerCase()) {
+        response['result'].splice(index, 1);
+      }
+    }
+  }
+  if (selected_city != 'Toutes les villes') {
+    console.log('entering city filter')
+    for (let index = 0; index < response['result'].length; index++) {
+      if (response['result'][index]['city'].toLowerCase() !== selected_city.toLowerCase()) {
         response['result'].splice(index, 1);
       }
     }
@@ -262,7 +270,6 @@ function displaySearchResults(response){
   response['result'].forEach(element => {
     console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
-    console.log(match_hours.getMinutes())
     match_hours.setMinutes(match_hours.getMinutes() + element['length']);
     document.getElementById('cards_group').innerHTML += `<div class="card">
     <div class="left_card">

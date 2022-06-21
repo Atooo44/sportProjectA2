@@ -54,7 +54,7 @@
     //** Function that add a user to the database */
     //** Args => Mail | Last_name | first_name | Phone | Password */
 
-    function add_user($db,$mail,$last_name,$first_name,$password, $city, $age=0, $fit='', $match_played=0, $mark=0){
+    function add_user($db,$mail,$last_name,$first_name,$password, $city, $profil_picture, $age=0, $fit='', $match_played=0, $mark=0){
         $response = array();
         try {
             $is_registered = false;
@@ -81,7 +81,7 @@
 
                 // Password encryption
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $request = "INSERT INTO users (mail, last_name, first_name,password, city, age, fit, match_played, mark) VALUES (:mail,:name, :prename,:password, :city, :age, :fit, :match_played, :mark)";
+                $request = "INSERT INTO users (mail, last_name, first_name,password, city, age, fit, match_played, mark, profil_picture) VALUES (:mail,:name, :prename,:password, :city, :age, :fit, :match_played, :mark, :profil_picture)";
                 $statement = $db->prepare($request);
     
                 $statement->bindParam(':mail', $mail);
@@ -93,6 +93,7 @@
                 $statement->bindParam(':fit', $fit);
                 $statement->bindParam(':match_played', $match_played);
                 $statement->bindParam(':mark', $mark);
+                $statement->bindParam(':profil_picture', $profil_picture);
     
                 $statement->execute();
                 $response['isSuccess'] = true;

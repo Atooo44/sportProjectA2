@@ -7,11 +7,17 @@ $('#signup_submit').on('click', () => {
     mail = document.getElementById('mail').value
     password = document.getElementById('password').value
     password_confirmation = document.getElementById('password_confirmation').value
+    let picture = 1;
+    document.querySelectorAll("input[type=radio]").forEach(element => {
+        if (element.checked) {
+            picture = element.parentElement.getElementsByTagName('img')[0]['src'].split('/').reverse()[0].substring(2,3)
+        }
+    });
     ajaxRequest(
         'POST', 
         "request.php/create", 
         createSession,
-        `first_name=${first_name}&last_name=${last_name}&city=${city}&mail=${mail}&password=${password}&city=${city}`
+        `first_name=${first_name}&last_name=${last_name}&city=${city}&mail=${mail}&password=${password}&city=${city}&picture=${picture}`
     );
 });
 
@@ -49,7 +55,7 @@ $('#search_btn').on('click', () => {
     let selected_date = document.getElementById('date_list').value
     let selected_price = document.getElementById('price_list').value
     let selected_place = document.getElementById('place_list').value
-    let entered_query = document.getElementById('searchbar').value
+    let entered_query = document.getElementById('searchbar').value.toLowerCase()
 
     ajaxRequest('GET', `request.php/search/?sport=${selected_sport}&city=${selected_city}&date=${selected_date}&price=${selected_price}&place=${selected_place}&query=${entered_query}`, displaySearchResults,undefined);
 })
