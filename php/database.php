@@ -215,10 +215,7 @@
             $statement->bindParam(':id_match', $id_match);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-            $response['result'] = $result;
-            $response['isSuccess'] = true;
-            return $response;
+            return $result;
 
         } catch(PDOException $exception) {
             $response['message'] = $exception->getMessage();
@@ -238,7 +235,8 @@
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             
             foreach ($result as $key => $value) {
-                $number = getNumberePlayers($db, $key[])
+                $number = getNumberePlayers($db, $result[$key]['id_match']);
+                $result[$key]['registered_player_amount'] = $number;
             }
             $response['result'] = $result;
             $response['isSuccess'] = true;
