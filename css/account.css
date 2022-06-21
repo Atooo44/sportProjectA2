@@ -217,3 +217,9 @@ input{
       border: 2px solid var(--black);
       border-radius: 10px;
    }
+
+   .note{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+   }
