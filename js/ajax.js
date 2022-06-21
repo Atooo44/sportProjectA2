@@ -237,14 +237,19 @@ function displaySports(){
 
 
 function displayDates(){
-  const dates = ['Sans', '+7 Jours', '+15 Jours', '+30 Jours']
+  const dates = ['Sans', '7', '15', '30']
   for (var i = 0; i<dates.length; i++){
     let isExist = false;
     isExist = $(`#date_list option[value="${dates[i]}"]`).length > 0;
     if (!isExist) {
       var opt = document.createElement('option');
       opt.value = dates[i];
-      opt.innerHTML = dates[i];
+      if (dates[i] == 'Sans') {
+        opt.innerHTML = 'Sans'
+      } else {
+        opt.innerHTML = `+${dates[i]} Jours`;
+      }
+      
       document.getElementById('date_list').appendChild(opt);
     }
   }
@@ -260,7 +265,6 @@ function displaySearchResults(response){
 
 
   //** Manage filters */
-  console.log(selected_sport.length)
   if (selected_sport != 'Tous les sports') {
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['sport'].toLowerCase() !== selected_sport.toLowerCase()) {
@@ -269,7 +273,6 @@ function displaySearchResults(response){
     }
   }
   if (selected_city != 'Toutes les villes') {
-    console.log('entering city filter')
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['city'].toLowerCase() !== selected_city.toLowerCase()) {
         response['result'].splice(index, 1);
@@ -277,11 +280,23 @@ function displaySearchResults(response){
     }
   }
 
-  console.log("SPORT => "  + selected_sport)
-  console.log("CITY => "  + selected_city)
-  console.log("DATE => "  + selected_date)
+  if (selected_date != 'Sans') {
+    for (let index = 0; index < response['result'].length; index++) {
+      var today = new Date();
+      today.setDate(today.getDate() + parseInt(selected_date))
+      var dd = String(today.getDate()).padStart(2, '0');
+      var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+      var yyyy = today.getFullYear();
 
-
+      today =  yyyy + '-' + mm + '-' + dd;
+      console.log(response['result'][index]['date'].split(' ')[0])
+      if (new Date(response['result'][index]['date'].split(' ')[0]) > new Date(today)) {
+        console.log(response['result'][index]['date'].split(' ')[0])
+        response['result'].splice(index, 1);
+        index--;
+      }
+    }
+  }
   const myNode = document.getElementById("cards_group");
   while (myNode.lastElementChild) {
     myNode.removeChild(myNode.lastElementChild);
@@ -292,7 +307,7 @@ function displaySearchResults(response){
     match_hours.setMinutes(match_hours.getMinutes() + element['length']);
     document.getElementById('cards_group').innerHTML += `<div class="card">
     <div class="left_card">
-        <div class="row_info title"><img src="../ressources/logo_${element['sport']}.svg"><h2>&nbsp;&nbsp;${element['sport']}</h2></div><br>
+        <div class="row_info title"><img src="../ressources/logo_${element['sport'].toLowerCase()}.svg"><h2>&nbsp;&nbsp;${element['sport']}</h2></div><br>
         <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>${element['city']} </p></div><br>
         <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} </p></div><br>
         <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)} </p></div>
@@ -317,8 +332,14 @@ function displayEventCreationSuccess(response){
     success_message.innerHTML = check['message'];
   } else {
     success_message.innerHTML = "L'événement a été créer avec succès";
+    document.getElementById('choosed_price').value = ''
+    document.getElementById('choosed_city').value = ''
+    document.getElementById('choosed_duration').value = ''
+    document.getElementById('choosed_amount_player').value = ''
+    document.getElementById('choosed_hours').value = ''
+    document.getElementById('choosed_date').value = ''
   }  
-  document.querySelector("body > section > div > div.div2 > div.add").before(success_message);
+  document.querySelector("#card_id").before(success_message);
   setTimeout(() =>
   {
     $('#success_message').hide();

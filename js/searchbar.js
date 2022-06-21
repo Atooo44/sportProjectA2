@@ -8,8 +8,6 @@ function openSearchbar(id) {
     
     var rect = document.getElementById(id).getBoundingClientRect();
     var rect2 = document.getElementById('result').getBoundingClientRect();
-    console.log(rect);
-    console.log(rect2);
     let popup;
     popup = document.getElementsByClassName("result")[0];
     is_popup_open[0] = true;
