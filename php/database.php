@@ -165,18 +165,19 @@
             $hidden_password = password_hash("**************", PASSWORD_DEFAULT);
             if (!password_verify($password, $hidden_password)) {
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $request = "UPDATE users set city = :cityname, age = :age_value, password = :password_value, fit = :fit_value  WHERE (mail = :mail)";
+                $request = "UPDATE users set city = :cityname, age = :age_value, password = :password_value, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
                 $statement = $db->prepare($request);
                 $statement->bindParam(':password_value', $password);
             } else {
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $request = "UPDATE users set city = :cityname, age = :age_value, fit = :fit_value  WHERE (mail = :mail)";
+                $request = "UPDATE users set city = :cityname, age = :age_value, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
                 $statement = $db->prepare($request); 
             }
             $statement->bindParam(':mail', $mail);
             $statement->bindParam(':fit_value', $fit);
             $statement->bindParam(':age_value', $age);
             $statement->bindParam(':cityname', $city);
+            $statement->bindParam(':mark', $mark);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             $response['isSuccess'] = true;

@@ -148,6 +148,7 @@ function displayUserAccount(response){
   document.querySelector("body > section > div.parent > div.div2 > div.identity > div.photo > img")['src'] = `../ressources/pp${response[0]['profil_picture']}.png`
   var inputs = document.querySelectorAll('input[type="text"]');
   var input_password = document.querySelectorAll('input[type="password"]');
+  var input_mark =  document.getElementById('mark');
   let savebutton = document.getElementById('edit_btn');
   var readonly = true;
   savebutton.addEventListener('click',function(){
@@ -158,10 +159,11 @@ function displayUserAccount(response){
     for (var i=0; i<input_password.length; i++) {
       input_password[i].toggleAttribute('readonly');
       };
+      input_mark.toggleAttribute('readonly'); 
    if (savebutton.innerHTML == "Editez le profil") {
       savebutton.innerHTML = "Enregistrer";
     } else {
-      ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}`)
+      ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}&mark=${document.getElementById('mark').value}`)
       savebutton.innerHTML = "Editez le profil";
       let success_message = document.createElement('div')
       success_message.className = "alert alert-success"
@@ -184,6 +186,20 @@ function displayUserAccount(response){
     document.getElementById('user_age').value = "❌"
   } else {
     document.getElementById('user_age').value = response[0]['age'] + " ans"
+  }
+  if (response[0]['mark'] == '0') {
+    document.getElementById('mark').value = "1";
+    star[0].style.color ="#e3eb17";
+
+  } else {
+    if (response[0]['mark'] > '5') {
+      response[0]['mark']==5;
+    }
+    document.getElementById('mark').value = response[0]['mark'];
+    for (let index = 0; index < response[0]['mark']; index++) {
+      star[index].style.color = "#e3eb17";
+      
+    }
   }
 }
 

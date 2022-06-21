@@ -127,12 +127,14 @@
                     <div class="mark">
                         <span> Noter l'Application</span>
                         <div class="note">
-                        <i class="fa-solid fa-star star" id="star1" onmouseover="colorStar(1)" onclick ="setNote(1)"></i>
-                        <i class="fa-solid fa-star star" id="star2" onmouseover="colorStar(2)" onclick ="setNote(2)"></i>
-                        <i class="fa-solid fa-star star" id="star3" onmouseover="colorStar(3)" onclick ="setNote(3)"></i>
-                        <i class="fa-solid fa-star star" id="star4" onmouseover="colorStar(4)" onclick ="setNote(4)"></i>
-                        <i class="fa-solid fa-star star" id="star5" onmouseover="colorStar(5)" onclick ="setNote(5)"></i>
-                        <button id="note">Noter</button>
+                            <div class="stars">
+                                <i class="fa-solid fa-star star" id="star1" value="1"></i>
+                                <i class="fa-solid fa-star star" id="star2" value="2"></i>
+                                <i class="fa-solid fa-star star" id="star3" value="3"></i>
+                                <i class="fa-solid fa-star star" id="star4" value="4"></i>
+                                <i class="fa-solid fa-star star" id="star5" value="5"></i>
+                            </div>   
+                            <input type="number" id="mark" readonly min="1" max="5">   
                         </div>
                         
                     </div>
