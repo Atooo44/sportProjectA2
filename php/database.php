@@ -208,11 +208,8 @@
     //** Function that return matchs according to a query */
     function search_matchs($db, $sport, $city, $date, $price, $place, $query){
         $response = array();
-        if ($sport == 'Tous les sports') {
-            $sport = '*';
-        }
         try { 
-            $request = "SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, u.first_name, u.last_name from match m, users u where m.city LIKE :query OR m.sport LIKE :query AND m.mail = u.mail";
+            $request = "SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, u.first_name, u.last_name from match m, users u where m.mail = u.mail AND (m.sport LIKE :query OR m.city LIKE :query)";
             $statement = $db->prepare($request);
             $statement->bindParam(':query', $query);
             $statement->execute();

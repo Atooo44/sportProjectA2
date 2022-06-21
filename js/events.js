@@ -26,17 +26,7 @@ $('#login_submit').on('click', () => {
     );
 });
 
-$('#city_list').on('click', () => {
-    ajaxRequest('GET', 'request.php/cities', displayCities, undefined)
-})
 
-$('#sport_list').on('click', () => {
-    displaySports();
-})
-
-$('#date_list').on('click', () => {
-    displayDates();
-})
 
 
 $('#search_evenement').on('click', () => {
@@ -53,7 +43,7 @@ $('#search_evenement').on('click', () => {
     ajaxRequest('POST', 'request.php/addEvenement', displayEventCreationSuccess, `sport=${selected_sport}&amount_players=${parseInt(selected_amount_players)}&price=${parseFloat(selected_price)}&city=${selected_city}&date=${selected_date + ' ' +selected_hours + ':00'}&duration=${parseFloat(selected_duration)}&mail=${mail}`)
 })
 
-$('#searchbar').on('keyup', () => {
+$('#search_btn').on('click', () => {
     let selected_sport = document.getElementById('sport_list').value
     let selected_city = document.getElementById('sport_list').value
     let selected_date = document.getElementById('date_list').value

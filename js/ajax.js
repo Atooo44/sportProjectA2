@@ -212,6 +212,7 @@ function displaySports(){
       document.getElementById('sport_list').appendChild(opt);
     }
   }
+
 }
 
 
@@ -230,6 +231,34 @@ function displayDates(){
 }
 
 function displaySearchResults(response){
+  let selected_sport = document.getElementById('sport_list').value
+  let selected_city = document.getElementById('city_list').value
+  let selected_date = document.getElementById('date_list').value
+  let selected_price = document.getElementById('price_list').value
+  let selected_place = document.getElementById('place_list').value
+  let entered_query = document.getElementById('searchbar').value
+
+
+  //** Manage filters */
+  console.log(selected_sport.length)
+  if (selected_sport != 'Tous les sports') {
+    console.log('entering sport filter')
+    for (let index = 0; index < response['result'].length; index++) {
+      if (response['result'][index]['sport'].toLowerCase() !== selected_sport.toLowerCase()) {
+        response['result'].splice(index, 1);
+      }
+    }
+  }
+
+  console.log("SPORT => "  + selected_sport)
+  console.log("CITY => "  + selected_city)
+  console.log("DATE => "  + selected_date)
+
+
+  const myNode = document.getElementById("cards_group");
+  while (myNode.lastElementChild) {
+    myNode.removeChild(myNode.lastElementChild);
+  }
   response['result'].forEach(element => {
     console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])

@@ -1,1 +1,1 @@
-SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, u.first_name, u.last_name from match m, users u where m.city LIKE '%foo%' OR m.sport LIKE '%foo%' AND m.mail = u.mail 
+SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, m.mail, u.first_name, u.last_name from match m, users u where m.mail = u.mail AND m.city LIKE '%Toulou%' OR m.sport LIKE '%Toulou%'  

@@ -37,12 +37,12 @@
                     <form action="" method="post" class="search_form" id="searchForm" >
                             <input type="text" name="search" placeholder="Football, Tennis, Nantes, Caen..." class="searchbar" id="searchbar">
                             <div class="btn" id="searchButton">
-                                <i class="submit_button fas fa-search fa-xl"></i>
+                                <i class="submit_button fas fa-search fa-xl" id="search_btn"></i>
                             </div>
                             </input>
                     </form>
                     <div class="result" id="result">
-                    <ul class="sport_result" id="sport_result">
+                    <ul class="sport_result" id="cities">
                         <li>Football</li>
                         <li>Tennis</li>
                         <li>Babyfoot</li>
@@ -99,6 +99,19 @@
 <script src="../js/utils.js"></script>    
 <script src="../js/searchbar.js"></script>   
 <script>
+    window.onload = function(){
+        loadUser();
+        displaySports();
+        displayDates();
+        ajaxRequest('GET', 'request.php/cities', displayCities, undefined)
+
+    }
+    window.onbeforeunload = function(){
+        loadUser();
+        displaySports();
+        displayDates();
+        
+    }
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
     darkmode.onclick = function(){
