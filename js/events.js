@@ -54,6 +54,7 @@ $('#search_btn').on('click', () => {
     ajaxRequest('GET', `request.php/search/?sport=${selected_sport}&city=${selected_city}&date=${selected_date}&price=${selected_price}&place=${selected_place}&query=${entered_query}`, displaySearchResults,undefined);
 })
 
-window.onload = function(){    
+$('#searchbar').on('click', () => {
     ajaxRequest('GET', 'request.php/cities', displayCities2, undefined);
-}
+})
+

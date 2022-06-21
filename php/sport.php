@@ -42,7 +42,7 @@
                             </input>
                     </form>
                     <div class="result" id="result">
-                    <ul class="sport_result" id="cities">
+                    <ul class="sport_result" id="sport_result">
                         <li>Football</li>
                         <li>Tennis</li>
                         <li>Babyfoot</li>

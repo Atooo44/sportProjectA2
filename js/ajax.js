@@ -309,6 +309,7 @@ function displayCities2(response){
       opt.value = response['result'][i]['city'];
       opt.innerHTML = response['result'][i]['city'];
       document.getElementById('cities').innerHTML+="<li>"+ response['result'][i]['city'] + "</li>";
+      console.log(opt)
     }
   }
 
@@ -322,7 +323,7 @@ function displayCities2(response){
       }
   }
 
-  let listItems1 = document.getElementsByClassName("cities")[0].getElementsByTagName("li");
+  let listItems1 = document.querySelector("#cities").getElementsByTagName('li');
 
 for(let i = 0; i < listItems1.length; i++){
     listItems1[i].onclick = function(){
