@@ -28,9 +28,10 @@
                 <a href="index.php"><img src="../ressources/logo_match.svg" class="logo"></a>
                 <div class="toggle"></div>
                 <ul class="navigation">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="connection.php">Inscription</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="sport.php">Sports</a></li>
+                    <li><a href="connection.php" id="register_btn">Inscription</a></li>
+                    <li><a href="connection.php" id="disconnect"></a></li>
                     <li><span class="darkMode"></span></li>
                 </ul>
             </header>
@@ -39,12 +40,12 @@
                 <div class="div1">
                     <div class="menu">
                         <div class="row">
-                            <a href="">PROFIL </a> <div class="circle"></div>
+                            <a href="account.php">PROFIL </a> <div class="circle"></div>
                         </div>
                         <div class="row">
-                        <a href="">NOTIFICATIONS</a>
+                        <a href="notifications.php">NOTIFICATIONS</a>
                         </div>
-                        <div class="row"><a href="">MATCHS</a></div>
+                        <div class="row"><a href="match.php">MATCHS</a></div>
                         
                     </div>
                 </div>

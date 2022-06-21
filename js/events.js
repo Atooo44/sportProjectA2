@@ -1,6 +1,5 @@
 //** CREATE ACCOUNT EVENT */
 $('#signup_submit').on('click', () => {
-    console.log("event!")
     first_name = document.getElementById('first_name').value
     last_name = document.getElementById('last_name').value
     city = document.getElementById('city').value
@@ -64,3 +63,6 @@ $('#searchbar').on('click', () => {
     ajaxRequest('GET', 'request.php/cities', displayCities2, undefined);
 })
 
+$('#disconnect').on('click', () => {
+    deleteCookie('user_id');
+})

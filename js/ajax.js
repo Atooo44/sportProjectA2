@@ -125,17 +125,25 @@ function createSessionLogin(response){
 }
 
 function loadUser() {
-  if (!document.cookie.includes('user_id')) {
-    window.location.href = "connection.php"
+  if (window.location.href.includes('index.php') && !document.cookie.includes('user_id')) {
+  }
+  else if (!document.cookie.includes('user_id')) {
+    window.location.href = "index.php"
   } else {
-    console.log(document.cookie);
     let cookie = document.cookie.split('=')[1];
-    ajaxRequest(
-      'GET', 
-      `request.php/retrieve/?mail=${cookie}`, 
-      displayUserAccount,
-      undefined
-    );
+    document.querySelector("#register_btn").innerHTML = "Profil"
+    document.querySelector("#register_btn").href = "account.php"
+    document.querySelector("#disconnect").innerHTML = "Déconnexion";
+    
+    if (window.location.href.includes('account.php')) {
+      ajaxRequest(
+        'GET', 
+        `request.php/retrieve/?mail=${cookie}`, 
+        displayUserAccount,
+        undefined
+      );
+    }
+
   }
 
 }
@@ -207,17 +215,16 @@ function displayUserAccount(response){
 }
 
 function displayCities(response){
-  response['result'].push({'city': 'Toutes les villes'})
-  for (var i = 0; i<response['result'].length; i++){
-    let isExist = false;
-    isExist = $(`#city_list option[value="${response['result'][i]['city']}"]`).length > 0;
-    if (!isExist) {
-      var opt = document.createElement('option');
-      opt.value = response['result'][i]['city'];
-      opt.innerHTML = response['result'][i]['city'];
-      document.getElementById('city_list').appendChild(opt);
+  //  response['result'].push({'city': 'Toutes les villes'});
+  const all = ['Toutes les villes'];
+  document.getElementById('city_list').innerHTML+="<option>Toutes les villes</option>";
+    for (var i = 0; i<response['result'].length; i++){
+      let isExist = false;
+      isExist = $(`#city_list option[value="${response['result'][i]['city']}"]`).length > 0;
+      if (!isExist) {
+        document.getElementById('city_list').innerHTML+="<option>"+ response['result'][i]['city'] + "</option>";
+      }
     }
-  }
 }
 
 function displaySports(){

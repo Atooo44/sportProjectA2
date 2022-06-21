@@ -22,9 +22,10 @@
                 <a href="index.php"><img src="../ressources/logo_match.svg" class="logo"></a>
                 <div class="toggle"></div>
                 <ul class="navigation">
-                    <li><a href="#">Accueil</a></li>
-                    <li><a href="#">Sports</a></li>
-                    <li><a href="connection.php">Inscription</a></li>
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="sport.php">Sports</a></li>
+                    <li><a href="connection.php" id="register_btn">Inscription</a></li>
+                    <li><a href="connection.php" id="disconnect"></a></li>
                     <li><span class="darkMode"></span></li>
                 </ul>
             </header>
@@ -68,6 +69,9 @@
 <script src="../js/utils.js"></script>  
 
 <script>
+    window.onload = function(){
+        loadUser();
+    }
     let darkmode = document.querySelector('.darkMode');
     let body = document.querySelector('body');
     darkmode.onclick = function(){
