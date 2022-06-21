@@ -158,7 +158,7 @@
     }
 
     //** Function that edit a user profile with given arguments */
-    function edit_user($db, $age, $password, $city, $fit, $mail){
+    function edit_user($db, $age, $password, $city, $fit, $mail, $mark){
         $response = array();
         try {
             isCityExists($db, $city);
