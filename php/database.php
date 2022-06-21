@@ -207,6 +207,26 @@
         }
     }
 
+    function getNumberePlayers($db, $id_match){
+        $response = array();
+        try { 
+            $request = "SELECT count(*) from reservation where id_match = :id_match AND validation = 1";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            $response['result'] = $result;
+            $response['isSuccess'] = true;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
     //** Function that return matchs according to a query */
     function search_matchs($db, $sport, $city, $date, $price, $place, $query){
         $response = array();
@@ -216,7 +236,10 @@
             $statement->bindParam(':query', $query);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-
+            
+            foreach ($result as $key => $value) {
+                $number = getNumberePlayers($db, $key[])
+            }
             $response['result'] = $result;
             $response['isSuccess'] = true;
             return $response;

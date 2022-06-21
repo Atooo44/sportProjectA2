@@ -48,6 +48,11 @@
             $res_add_evenement = add_evenement($db, $_POST['sport'], $_POST['amount_players'], $_POST['price'], $_POST['city'], $_POST['date'], $_POST['duration'], $_POST['mail']);
             echo json_encode($res_add_evenement);
             break;
+
+        case $requestMethod == "GET" && $requestRessource == "numberPlayers":
+            $res_number_player = getNumberePlayers($db, $_GET['id_match']);
+            echo json_encode($res_number_player);
+            break;
         default:
         # code...
         break;

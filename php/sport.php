@@ -68,9 +68,13 @@
                             <h2>Période</h2>
                             <select id="date_list">Sans <img src="../ressources/arrow.svg" class="arrow"></select>
                             <h2>Prix</h2>
-                            <input type="range" id="price_list" class="form-range" min="0" max="120" >
+                            <p>0 - <span id="demo"></span>€</p>    
+                            <input type="range" id="price_list" class="form-range" min="0" max="120" value="120" >
                             <h2>Places</h2>
-                            <input type="range" id="place_list" class="form-range" min="0" max="120" >
+                                <div class="places">
+                                    <input type="checkbox" id="place_list" >
+                                    <p>Complet</p>
+                                </div> 
                             <button>Retirer les filtres </button>
                         </div>
                     </div>

@@ -256,3 +256,9 @@ section{
 .result hr{
     border-top: 2px solid var(--green);
 }
+
+.places{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

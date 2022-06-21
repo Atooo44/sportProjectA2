@@ -266,7 +266,7 @@ function displaySearchResults(response){
   let selected_sport = document.getElementById('sport_list').value
   let selected_city = document.getElementById('city_list').value
   let selected_date = document.getElementById('date_list').value
-  let selected_price = document.getElementById('price_list').value
+  let selected_price = parseInt(document.getElementById('price_list').value)
   let selected_place = document.getElementById('place_list').value
   let entered_query = document.getElementById('searchbar').value
 
@@ -276,16 +276,40 @@ function displaySearchResults(response){
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['sport'].toLowerCase() !== selected_sport.toLowerCase()) {
         response['result'].splice(index, 1);
+        index--;
       }
     }
   }
+
   if (selected_city != 'Toutes les villes') {
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['city'].toLowerCase() !== selected_city.toLowerCase()) {
         response['result'].splice(index, 1);
+        index--;
       }
     }
   }
+
+  if (selected_price < 121) {
+    for (let index = 0; index < response['result'].length; index++) {
+      if (parseInt(response['result'][index]['price']) > selected_price) {
+        console.log("ahhajhahjahjahjahjahaj");
+        response['result'].splice(index, 1);
+        index--;
+      }
+    }
+  }
+
+  if ($('#place_list').is(":checked")) {
+    for (let index = 0; index < response['result'].length; index++) {
+      if (response['result'][index]['max_player'] > selected_price) {
+        console.log("ahhajhahjahjahjahjahaj");
+        response['result'].splice(index, 1);
+        index--;
+      }
+    }
+  }
+
 
   if (selected_date != 'Sans') {
     for (let index = 0; index < response['result'].length; index++) {
@@ -327,6 +351,7 @@ function displaySearchResults(response){
     </div>
 </div>`
   });
+
 }
 
 function displayEventCreationSuccess(response){
@@ -384,4 +409,13 @@ for(let i = 0; i < listItems1.length; i++){
         document.getElementById("searchbar").value = listItems1[i].innerText;
     }
 }
+}
+
+
+var slider = document.getElementById("price_list");
+var output = document.getElementById("demo");
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
 }
