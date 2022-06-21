@@ -93,6 +93,47 @@
                                 <input class="signup_input" id="password_confirmation" type="password" placeholder="**********"/>
                             </div>
                             <div class="signup_row">
+                                <label class="signup_label">Photo de profil</label>
+                                <div class="profil_picture">
+                                    <div class="pp">
+                                        <img src="../ressources/pp1.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp2.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp3.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp4.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp5.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp6.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp7.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp8.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp9.png">
+                                        <input type="radio" name="pp">
+                                    </div>           
+                                </div>
+                            </div>
+                            <div class="signup_row">
                                 <button class="signup_button" id="signup_submit" type="button">S'inscrire</button>
                             </div>
                     </div>

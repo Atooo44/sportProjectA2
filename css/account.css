@@ -193,3 +193,27 @@ input{
 .star{
     transition: 280ms ease;
 }
+
+.profil_picture {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-column-gap: 5%;
+    grid-row-gap: 5%;
+    justify-items: center;
+    margin-bottom: 1.5em;
+    }
+  
+   .pp{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+   
+   .profil_picture img{
+      width: 3.5em;
+      padding: 0.2em;
+      height: auto;
+      border: 2px solid var(--black);
+      border-radius: 10px;
+   }

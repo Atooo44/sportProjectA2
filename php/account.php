@@ -54,6 +54,48 @@
                         <div class="photo">
                             <img src="../ressources/pp1.png">
                             <i class="fa-solid fa-pen-to-square "></i>
+                            <div class="profil_picture">
+                                    <div class="pp">
+                                        <img src="../ressources/pp1.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp2.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp3.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp4.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp5.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp6.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp7.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp8.png">
+                                        <input type="radio" name="pp">
+                                    </div>
+                                    <div class="pp">
+                                        <img src="../ressources/pp9.png">
+                                        <input type="radio" name="pp">
+                                    </div> 
+                                    <div class="vide">
+
+                                    </div> 
+                                    <button id="submitpp">Valider</button>         
+                                </div>
                         </div>
                         <div class="personal">
                             <div class="name"  id="user_name">

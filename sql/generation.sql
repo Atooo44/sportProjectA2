@@ -21,15 +21,16 @@ CREATE TABLE public.location(
 -- Table: users
 ------------------------------------------------------------
 CREATE TABLE public.users(
-	mail           VARCHAR (50) NOT NULL ,
-	first_name     VARCHAR (50) NOT NULL ,
-	last_name      VARCHAR (50) NOT NULL ,
-	age            INT  NOT NULL ,
-	password       VARCHAR (80) NOT NULL ,
-	fit            VARCHAR (50) NOT NULL ,
-	match_played   INT  NOT NULL ,
-	mark           INT  NOT NULL ,
-	city           VARCHAR (50) NOT NULL  ,
+	mail             VARCHAR (50) NOT NULL ,
+	first_name       VARCHAR (50) NOT NULL ,
+	last_name        VARCHAR (50) NOT NULL ,
+	age              INT  NOT NULL ,
+	password         VARCHAR (80) NOT NULL ,
+	fit              VARCHAR (50) NOT NULL ,
+	match_played     INT  NOT NULL ,
+	mark             INT  NOT NULL ,
+	profil_picture   INT  NOT NULL ,
+	city             VARCHAR (50) NOT NULL  ,
 	CONSTRAINT users_PK PRIMARY KEY (mail)
 
 	,CONSTRAINT users_location_FK FOREIGN KEY (city) REFERENCES public.location(city)
