@@ -193,7 +193,10 @@ function displayUserAccount(response){
 
   } else {
     if (response[0]['mark'] > '5') {
-      response[0]['mark']==5;
+      response[0]['mark']=5;
+    }
+    if (response[0]['mark'] < '1') {
+      response[0]['mark']=1;
     }
     document.getElementById('mark').value = response[0]['mark'];
     for (let index = 0; index < response[0]['mark']; index++) {
