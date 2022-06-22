@@ -99,6 +99,7 @@
 
         </section>
 <script src="../js/ajax.js"></script>
+<script src="../js/slider.js"></script>
 <script src="../js/search.js"></script>
 <script src="../js/events.js"></script>                     
 <script src="../js/utils.js"></script>    
