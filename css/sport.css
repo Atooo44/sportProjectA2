@@ -206,6 +206,7 @@ section{
     border-radius: 10px;
     font-weight: 600;
     font-size: 16px;
+    margin-bottom: 1em;
 }
 
 .card button:hover{
@@ -288,4 +289,17 @@ section{
 
 .card{
     margin-bottom: 2em;
+}
+
+.error{
+    width: 100%;
+    background-color: rgba(247, 36, 8, 0.958);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.success_message{
+    background-color: #00f62d90;
+    border-radius: 10px;
+    padding: 10px;
 }

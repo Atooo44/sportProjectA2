@@ -65,7 +65,7 @@ function httpErrors(errorCode)
     $('#errors').show();
     setTimeout(() =>
     {
-      $('#errors').hide();
+      $('#errors').remove();
     }, 5000);
   }
 }
@@ -180,7 +180,7 @@ function displayUserAccount(response){
       document.querySelector("body > section > div.parent > div.div2 > div.identity").before(success_message);
       setTimeout(() =>
       {
-        $('#success_message').hide();
+        $('#success_message').remove();
       }, 3500);
     }   
   });
@@ -391,7 +391,7 @@ function displayJoinResult(response){
     });
     setTimeout(() =>
     {
-      $('#success_message').hide();
+      $('#success_message').remove();
     }, 2000);
   } else {
     let error_balise = document.createElement('div')
@@ -432,7 +432,7 @@ function displayEventCreationSuccess(response){
   document.querySelector("#card_id").before(success_message);
   setTimeout(() =>
   {
-    $('#success_message').hide();
+    $('#success_message').remove();
   }, 3500);
 }
 
