@@ -53,6 +53,11 @@
             $res_number_player = getNumberePlayers($db, $_GET['id_match']);
             echo json_encode($res_number_player);
             break;
+        
+        case $requestMethod == 'POST' && $requestRessource == "join":
+            $res_join_match = joinMatch($db, $_POST['id_match'], $_POST['mail']);
+            echo json_encode($res_join_match);
+            break;
         default:
         # code...
         break;

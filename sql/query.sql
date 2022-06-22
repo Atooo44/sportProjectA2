@@ -1,1 +1,1 @@
-SELECT m.date, m.city, m.id_match, m.sport, m.max_player, m.price, m.length, m.mail, u.first_name, u.last_name from match m, users u where m.mail = u.mail AND m.city LIKE '%foot%' OR m.sport LIKE '%foot%'  
+INSERT INTO reservation (validation, id_match, mail) VALUES ('0', '1', 'antoine.sdmir@gmail.com')
