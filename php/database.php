@@ -377,4 +377,35 @@
             return $response;
         }
     }
+
+    function retrieveOrganisator($db, $mail){
+        $response = array();
+        try { 
+            $request = "SELECT m.sport, m.date, m.city, m.length, m.mail, m.max_player, m.price, m.id_match from match m WHERE m.mail = :mail";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $key => $value) {
+                $request = "SELECT u.first_name, u.last_name from users u WHERE u.mail = :mail";
+                $statement = $db->prepare($request);
+                $statement->bindParam(':mail', $result[$key]['mail']);
+                $statement->execute();
+                $new_res = $statement->fetchAll(PDO::FETCH_ASSOC);
+                array_push($result[$key], $new_res);
+                $number = getNumberePlayers($db, $result[$key]['id_match']);
+                $result[$key]['registered_player_amount'] = $number;
+            }
+
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
 ?>

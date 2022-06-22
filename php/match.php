@@ -140,10 +140,10 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                     </div>
                     <div class="passed">
                         <h2> Mes matchs passés</h2>
-                            <div class="organizer">
+                            <div class="organizer" id="organizer">
                                 <h3> Organisateur</h3>
                             </div>
-                            <div class="player">
+                            <div class="player" id="player_placement">
                                 <h3> Joueur</h3>
                                 
                             </div>

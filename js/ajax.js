@@ -146,6 +146,7 @@ function loadUser() {
     if (window.location.href.includes('match.php')) {
       let cookie = document.cookie.split('=')[1]
       ajaxRequest('GET', `request.php/retrieveMatchs/?mail=${cookie}`, displayCurrentMatches, undefined)
+      displayOrganisatorPastMatchs();
     }
 
     if (window.location.href.includes('notifications.php')) {
@@ -357,13 +358,13 @@ function displaySearchResults(response){
   response['result'].forEach(element => {
     console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
-    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+    match_finished = addMinutes(match_hours.toLocaleTimeString(), parseInt(element['length']))
     document.getElementById('cards_group').innerHTML += `<div class="card">
     <div class="left_card">
         <div class="row_info title"><img src="../ressources/logo_${element['sport'].toLowerCase()}.svg"><h2>&nbsp;&nbsp;${element['sport']}</h2></div><br>
         <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>${element['city']} </p></div><br>
         <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} </p></div><br>
-        <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)} </p></div>
+        <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De ${element['date'].split(' ')[1].substr(0,5)} à ${match_finished} </p></div>
     </div>
     <div class="right_card" id="pos_${i}">
         <p><span>Organisateur :</span> ${element['first_name']} ${element['last_name']}</p><br>
@@ -503,27 +504,87 @@ slider.oninput = function() {
 
 function displayCurrentMatches(response){
   response['result'].forEach(element => {
-    console.log(element['date'].split(' ')[1])
-    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
-    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
-    document.getElementById('coming').innerHTML += `<div class="card_double">
-    <div class="visible">
-        <div class="column1">
-            <div class="title">
-                <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
-                ${element['sport']}
-            </div>
-            <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)}</p>
-            <p><span>Prix : </span> ${element['price']}€ </p>
-        </div>
-        <div class="column2">
-        <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
-        <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>`
     
-    
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today =  yyyy + '-' + mm + '-' + dd;
+    if (today > element['date'].split(' ')[0]) {
+      match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+      match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+      document.getElementById('player_placement').innerHTML += `<div class="card_double">
+      <div class="visible">
+          <div class="column1">
+              <div class="title">
+                  <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+                  ${element['sport']}
+              </div>
+              <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)}</p>
+              <p><span>Prix : </span> ${element['price']}€ </p>
+          </div>
+          <div class="column2">
+          <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
+          <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>`
+    } else {
+      match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+      match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+      document.getElementById('coming').innerHTML += `<div class="card_double">
+      <div class="visible">
+          <div class="column1">
+              <div class="title">
+                  <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+                  ${element['sport']}
+              </div>
+              <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)}</p>
+              <p><span>Prix : </span> ${element['price']}€ </p>
+          </div>
+          <div class="column2">
+          <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
+          <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>`
+    }
   });
 }
 
+
+function displayOrganisatorPastMatchs(){
+  let cookie = document.cookie.split('=')[1];
+  ajaxRequest('GET', `request.php/retrieveOrganisator/?mail=${cookie}`, displayOrgResults, undefined)
+
+}
+function displayOrgResults(response) { 
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, '0');
+  var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today =  yyyy + '-' + mm + '-' + dd;
+
+
+  response['result'].forEach(element => {
+    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+    match_finished = addMinutes(match_hours.toLocaleTimeString(), parseInt(element['length']))
+    if(today > element['date'].split(' ')[0]){
+      document.getElementById('organizer').innerHTML += `<div class="card_double">
+      <div class="visible">
+          <div class="column1">
+              <div class="title">
+                  <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+                  ${element['sport']}
+              </div>
+              <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_finished}</p>
+              <p><span>Prix : </span> ${element['price']}€ </p>
+          </div>
+          <div class="column2">
+          <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
+          <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>
+          <input type="text" placeholder="Score..">Saisir le Score
+          <button id="edit_btn">Editez le profil</button>`
+    }
+  })
+
+}
 
 function displayNotiPlayer(response){
 
@@ -535,7 +596,7 @@ function displayNotiPlayer(response){
   }
   response['result'].forEach(element => {
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
-    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+    match_finished = addMinutes(match_hours.toLocaleTimeString(), parseInt(element['length']))
     document.getElementById('noti').innerHTML += `
     <div class="player" id="player${i}">          
       <div class="card">
