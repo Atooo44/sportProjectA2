@@ -13,8 +13,8 @@ function openSearchbar(id) {
     is_popup_open[0] = true;
 
     popup.style.display = "block";
-    popup.style["top"] = rect + "px";
-    popup.style["left"] = rect  + "px";
+    popup.style["top"] = rect.bottom + 7 + "px";
+    popup.style["left"] = rect.left +    + "px";
    
     popup.style["z-index"] = 10;
     height = (window.innerHeight - rect.bottom - 50) + "px";
@@ -23,6 +23,30 @@ function openSearchbar(id) {
     }
     popup.style["height"] = "fit-content";
     popup.style["max-height"] = height;
+
+    
+
+    
+    
+}
+
+window.onresize = function(){
+    if (is_popup_open[0] == true) {
+        
+        openSearchbar("searchbar");
+    }
+}
+
+
+window.onscroll = function(){  
+    if (is_popup_open[0] == true) {
+        
+        openSearchbar("searchbar");
+    }  
+}
+
+document.getElementById("searchbar").oninput = function(){
+    search();
 }
 
 function closeSearchbar(id) {
@@ -35,6 +59,7 @@ function closeSearchbar(id) {
     else{
         document.getElementsByClassName("scrollpopup")[0].style.display = "none";
         is_popup_open[0] = false;
+        
     }
 }
 
@@ -47,17 +72,7 @@ window.onclick = function(event){
     }
 }
 
-window.onresize = function(){
-    openSearchbar("searchbar");
-}
 
-window.onscroll = function(){    
-    openSearchbar("searchbar");
-}
-
-document.getElementById("searchbar").oninput = function(){
-    search();
-}
 
 function search() {
     var input = document.getElementById("searchbar");

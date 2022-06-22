@@ -162,14 +162,17 @@
 }
 
 .img{
-    width: 90vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
+    display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-row-gap: 5%;
+  justify-items: center;
+
 }
 
 .img img{
-    width: 15%;
+    width: 60%;
+    height: auto;
 }
 
 @media (max-width: 630px){

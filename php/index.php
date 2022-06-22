@@ -32,6 +32,7 @@
             <!-- commentaire -->
             <div class="main">
                 <h2>Trouver un <span>match</span><br> près de chez vous</h2><br>
+                <!---
                 <form action="" method="post" class="search_form" id="searchForm" >
                         <input type="text" name="search" placeholder="Football, Tennis, Nantes, Caen..." class="searchbar" id="searchbar">
                         <div class="btn" id="searchButton">
@@ -39,6 +40,7 @@
                         </div>
                         </input>
                 </form>
+                -->
                 <div class="result" id="result">
                     <ul class="sport_result" id="sport_result">
                         <li>Football</li>
