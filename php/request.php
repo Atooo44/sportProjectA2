@@ -58,6 +58,11 @@
             $res_join_match = joinMatch($db, $_POST['id_match'], $_POST['mail']);
             echo json_encode($res_join_match);
             break;
+        
+        case $requestMethod == 'GET' && $requestRessource == 'retrieveMatchs':
+            $res_retrieve_matchs = retrieve_matchs($db, $_GET['mail']);
+            echo json_encode($res_retrieve_matchs);
+            break;
         default:
         # code...
         break;

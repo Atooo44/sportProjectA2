@@ -143,6 +143,10 @@ function loadUser() {
         undefined
       );
     }
+    if (window.location.href.includes('match.php')) {
+      let cookie = document.cookie.split('=')[1]
+      ajaxRequest('GET', `request.php/retrieveMatchs/?mail=${cookie}`, displayCurrentMatches, undefined)
+    }
 
   }
 
@@ -476,4 +480,27 @@ output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
+}
+
+function displayCurrentMatches(response){
+  response['result'].forEach(element => {
+    console.log(element['date'].split(' ')[1])
+    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+    document.getElementById('coming').innerHTML += `<div class="card_double">
+    <div class="visible">
+        <div class="column1">
+            <div class="title">
+                <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+                ${element['sport']}
+            </div>
+            <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)}</p>
+            <p><span>Prix : </span> ${element['price']}€ </p>
+        </div>
+        <div class="column2">
+        <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
+        <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>`
+    
+    
+  });
 }

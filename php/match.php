@@ -89,9 +89,9 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                             
                         </form>
                     </div>
-                    <div class="coming">
+                    <div class="coming" id="coming">
                         <h2> Mes matchs à venir</h2>
-                        <div class="card_double">
+                        <div class="card_double" id="card_double">
                             <div class="visible">
                                 <div class="column1">
                                     <div class="title">

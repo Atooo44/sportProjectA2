@@ -1,1 +1,1 @@
-INSERT INTO reservation (validation, id_match, mail) VALUES ('0', '1', 'antoine.sdmir@gmail.com')
+SELECT u.first_name, u.last_name from users u WHERE u.mail = 'louis.sdmir@gmail.com';

@@ -325,4 +325,36 @@
         } 
 
     }
+    function retrieve_matchs($db, $mail){
+        $response = array();
+        try { 
+            $request = "SELECT m.sport, m.mail, m.city, m.price, m.date, m.length, m.id_match, m.max_player, r.validation from match m left join reservation r on r.id_match = m.id_match left join users u on r.mail = u.mail where r.validation=1 and u.mail = :mail";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            $response['isSuccess'] = true;
+
+            foreach ($result as $key => $value) {
+                $request = "SELECT u.first_name, u.last_name from users u WHERE u.mail = :mail";
+                $statement = $db->prepare($request);
+                $statement->bindParam(':mail', $result[$key]['mail']);
+                $statement->execute();
+                $new_res = $statement->fetchAll(PDO::FETCH_ASSOC);
+                array_push($result[$key], $new_res);
+                $number = getNumberePlayers($db, $result[$key]['id_match']);
+                $result[$key]['registered_player_amount'] = $number;
+            }
+            $response['result'] = $result;
+
+
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
 ?>
