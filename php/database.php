@@ -277,4 +277,52 @@
             return $response;
         } 
     }
+
+    function joinMatch($db, $id_match, $mail){
+
+        $response = array();
+
+        try { 
+            $request = "SELECT id_match from reservation WHERE mail = :mail";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($result as $key => $value) {
+                if ($result[$key]['id_match'] == $id_match) {
+                    $response['message'] = 'Vous avez déjà soumis une demande pour ce match!';
+                    $response['id'] = $id_match;
+                    $response['isSuccess'] = false;
+                    return $response;
+                }
+            }
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+
+
+        try { 
+            $request = "INSERT INTO reservation (validation, id_match, mail) VALUES ('0', :id_match, :mail)";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            $response['isSuccess'] = true;
+            $response['message'] = "Votre demande de participation à été soumise.";
+            $response['id'] = $id_match; 
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        } 
+
+    }
 ?>

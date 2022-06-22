@@ -293,7 +293,6 @@ function displaySearchResults(response){
   if (selected_price < 121) {
     for (let index = 0; index < response['result'].length; index++) {
       if (parseInt(response['result'][index]['price']) > selected_price) {
-        console.log("ahhajhahjahjahjahjahaj");
         response['result'].splice(index, 1);
         index--;
       }
@@ -303,7 +302,6 @@ function displaySearchResults(response){
   if ($('#place_list').is(":checked")) {
     for (let index = 0; index < response['result'].length; index++) {
       if (response['result'][index]['max_player'] > response['result'][index]['registered_player_amount'][index]['count']) {
-        console.log("ahhajhahjahjahjahjahaj");
         response['result'].splice(index, 1);
         index--;
       }
@@ -332,6 +330,7 @@ function displaySearchResults(response){
   while (myNode.lastElementChild) {
     myNode.removeChild(myNode.lastElementChild);
   }
+  var i = 0
   response['result'].forEach(element => {
     console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
@@ -343,14 +342,67 @@ function displaySearchResults(response){
         <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} </p></div><br>
         <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De ${element['date'].split(' ')[1].substr(0,5)} à ${match_hours.toLocaleTimeString().substr(0,5)} </p></div>
     </div>
-    <div class="right_card">
+    <div class="right_card" id="pos_${i}">
         <p><span>Organisateur :</span> ${element['first_name']} ${element['last_name']}</p><br>
         <p><span>Joueurs inscrits :</span> 9/22</p><br>
         <p><span>Prix :</span> ${element['price']}€</p><br>
-        <button>S'INSCRIRE</button>
+        <p style='display: none;'><span class='match_identifier'>ID:${element['id_match']}</span></p>
     </div>
 </div>`
+    
+    let register_btn = document.createElement('button')
+    register_btn.innerHTML = "S'INSCRIRE";
+    register_btn.className = 'registerButton'
+    document.querySelector(`#pos_${i}`).appendChild(register_btn);
+    i++;
+    
+    
   });
+
+  document.querySelectorAll(".registerButton").forEach(element => {
+    element.addEventListener('click', () => {
+      let cookie = document.cookie.split('=')[1];
+      let match_id = event.target.parentNode.getElementsByClassName('match_identifier')[0].innerHTML.split(':')[1]
+
+
+      ajaxRequest('POST', 'request.php/join', displayJoinResult, `id_match=${match_id}&mail=${cookie}`)
+      
+    })
+  });
+
+}
+
+function displayJoinResult(response){
+  if (response['isSuccess']) {
+    let success_message = document.createElement('div')
+    success_message.id = "success_message"
+    success_message.className = "alert alert-success"
+    success_message.innerHTML = response['message']
+    document.querySelectorAll('.match_identifier').forEach(element => {
+      if (element.innerHTML == `ID:${response['id']}`) {
+        element.parentElement.parentElement.getElementsByTagName('button')[0].after(success_message)
+      }
+    });
+    setTimeout(() =>
+    {
+      $('#success_message').hide();
+    }, 2000);
+  } else {
+    let error_balise = document.createElement('div')
+    error_balise.id = "error_section"
+    error_balise.className = "error"
+    error_balise.innerHTML = response['message']
+    document.querySelectorAll('.match_identifier').forEach(element => {
+      if (element.innerHTML == `ID:${response['id']}`) {
+        element.parentElement.parentElement.getElementsByTagName('button')[0].after(error_balise)
+      }
+    });
+    setTimeout(() =>
+    {
+      $('#error_section').remove();
+    }, 2000);
+  }
+
 
 }
 
