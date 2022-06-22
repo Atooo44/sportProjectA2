@@ -302,7 +302,7 @@ function displaySearchResults(response){
 
   if ($('#place_list').is(":checked")) {
     for (let index = 0; index < response['result'].length; index++) {
-      if (response['result'][index]['max_player'] > selected_price) {
+      if (response['result'][index]['max_player'] > response['result'][index]['registered_player_amount'][index]['count']) {
         console.log("ahhajhahjahjahjahjahaj");
         response['result'].splice(index, 1);
         index--;
