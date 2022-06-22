@@ -63,6 +63,11 @@
             $res_retrieve_matchs = retrieve_matchs($db, $_GET['mail']);
             echo json_encode($res_retrieve_matchs);
             break;
+
+        case $requestMethod == "GET" && $requestRessource == "notiPlayer":
+            $res_noti_player = getNotificationPlayer($db, $_GET['mail']);
+            echo json_encode($res_noti_player);
+            break;
         default:
         # code...
         break;

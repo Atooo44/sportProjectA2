@@ -357,4 +357,24 @@
             return $response;
         }
     }
+
+    
+    function getNotificationPlayer($db, $mail){
+        $response = array();
+        try { 
+            $request = "SELECT m.sport, m.date, m.city, r.validation from match m, reservation r where r.id_match = m.id_match AND r.mail = :mail ";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
 ?>

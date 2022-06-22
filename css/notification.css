@@ -192,3 +192,8 @@
 .cross{
     filter: invert(19%) sepia(74%) saturate(7480%) hue-rotate(360deg) brightness(105%) contrast(123%);
 }
+
+.pending{
+    background-color: rgb(168, 168, 168);
+
+}

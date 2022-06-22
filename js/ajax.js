@@ -148,6 +148,15 @@ function loadUser() {
       ajaxRequest('GET', `request.php/retrieveMatchs/?mail=${cookie}`, displayCurrentMatches, undefined)
     }
 
+    if (window.location.href.includes('notifications.php')) {
+      ajaxRequest(
+        'GET', 
+        `request.php/notiPlayer/?mail=${cookie}`, 
+        displayNotiPlayer,
+        undefined
+      );
+    }
+
   }
 
 }
@@ -503,4 +512,56 @@ function displayCurrentMatches(response){
     
     
   });
+}
+
+
+function displayNotiPlayer(response){
+
+  let i = 0;
+  
+  const myNode = document.getElementById("noti");
+  while (myNode.lastElementChild) {
+    myNode.removeChild(myNode.lastElementChild);
+  }
+  response['result'].forEach(element => {
+    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+    document.getElementById('noti').innerHTML += `
+    <div class="player" id="player${i}">          
+      <div class="card">
+          <div class="title">
+              <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+              <h3 id="title">${element['sport']}<h3>
+          </div>
+          <div class="date">
+              <p>${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} à partir de ${element['date'].split(' ')[1].substr(0,5)} à ${element['city']} <p>
+          </div>
+          <div class="response" id="response"> </div>
+      </div>
+      <img src="../ressources/bin.svg" class="bin" id="bin${i}">
+    </div>`
+
+    let response = document.getElementsByClassName('response');
+    let bin = document.getElementsByClassName('bin');
+          if (element['validation'] == 1 ){
+            response[i].innerHTML ="Accepté";
+            response[i].classList += " valid";
+          }
+          if (element['validation'] == 2 ){
+            response[i].innerHTML ="Reufusé";
+            response[i].classList += " refuse";
+          }
+          if (element['validation'] == 0 ){
+            response[i].innerHTML ="En attente";
+            response[i].classList += " pending";
+          }
+    bin[i].setAttribute('onclick','discard('+i+')') ;
+          
+      i++;
+
+      
+  });
+
+  
+
 }
