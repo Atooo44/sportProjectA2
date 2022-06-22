@@ -344,17 +344,23 @@ function displaySearchResults(response){
     </div>
     <div class="right_card" id="pos_${i}">
         <p><span>Organisateur :</span> ${element['first_name']} ${element['last_name']}</p><br>
-        <p><span>Joueurs inscrits :</span> 9/22</p><br>
+        <p><span>Joueurs inscrits :</span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p><br>
         <p><span>Prix :</span> ${element['price']}€</p><br>
         <p style='display: none;'><span class='match_identifier'>ID:${element['id_match']}</span></p>
     </div>
 </div>`
     
-    let register_btn = document.createElement('button')
+    let register_btn = document.createElement('button');
     register_btn.innerHTML = "S'INSCRIRE";
-    register_btn.className = 'registerButton'
+    register_btn.className = 'registerButton';
+    register_btn.id = "register";
     document.querySelector(`#pos_${i}`).appendChild(register_btn);
     i++;
+
+    let bouton = document.getElementById('register');
+    if (element['registered_player_amount'][0]['count'] == element['max_player'] ){
+      bouton.style.display ="none";
+    }
     
     
   });

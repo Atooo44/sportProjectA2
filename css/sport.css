@@ -220,11 +220,11 @@ section{
     display: none;
     flex-direction: column;
     list-style-type: none;
-    width: 70%;
+    width: 600px;
+
     padding: 15px;
     border: solid 3px var(--green);
-    position:absolute;
-    top: 300px;
+    position:fixed;
     z-index: 55555;
     background-color: var(--white);
     border-radius: 10px;
@@ -263,25 +263,29 @@ section{
     align-items: center;
 }
 
-.alert{
-    background-color: rgba(0, 128, 0, 0.51);
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 2em;
+.filter select{
+    padding: 10px;
+    background-color: var(--white);
+    border: 2px solid var(--blue2);
     border-radius: 10px;
-    color: var(--black);
-    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom: 1em;
+    outline: none;
+    font-weight: 400;
 }
-.error{
-    background-color: rgba(247, 36, 8, 0.958);
-    padding: 20px;
+
+.filter select:hover{
+    background-color: #f0f1f7;
+}
+
+.places{
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: baseline;
+    margin-bottom: 1em;
+}
+
+.card{
     margin-bottom: 2em;
-    border-radius: 10px;
-    color: var(--black);
-    font-weight: 500;
 }
