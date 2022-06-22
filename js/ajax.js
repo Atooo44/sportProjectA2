@@ -579,7 +579,8 @@ function displayOrgResults(response) {
           <div class="column2">
           <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
           <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>
-          <input type="text" placeholder="Score..">Saisir le Score
+          <p><span>Score : </span><input type="text" class="score" readonly></p>
+          
           <button id="edit_btn">Editez le profil</button>`
     }
   })

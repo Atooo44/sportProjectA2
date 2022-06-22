@@ -398,3 +398,41 @@
     color: var(--black);
     font-weight: 500;
 }
+
+.score{
+    border: solid 2px var(--blue2);
+    color: var(--black);
+    background: none;
+    border-radius: 5px;
+    outline: none;
+    font-weight: 500;
+    padding: 3px;
+
+}
+
+.score:read-only{
+    background: none;
+    border: none;
+    outline: none;
+    color: var(--black);
+
+}
+
+#edit_btn{
+    background-color: var(--green);
+    border: none;
+    font-weight: 600;
+    color: white;
+    padding: 7px;
+    border-radius: 7px;
+    align-self: flex-end;
+}
+
+#edit_btn:hover{
+    background-color: var(--green2);
+}
+
+#edit_btn:active{
+    background-color: var(--green3);
+}
+
