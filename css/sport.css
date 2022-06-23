@@ -336,6 +336,7 @@ p{
     display: flex;
     flex-direction: column;
     width: 100%;
+    transition: 500ms;
    }
 
    .row{
@@ -344,10 +345,22 @@ p{
     width: 100%;
     justify-content: space-around;
     flex-wrap: wrap;
+    transition: 500ms;
    }
 
    .name{
     display: flex;
     flex-direction: row;
     margin: 10px ;
+   }
+
+   .right_card{
+    display: flex;
+    flex-direction: column;
+   }
+
+   .right_card img{
+    margin-left: auto;
+    filter: invert(62%) sepia(80%) saturate(417%) hue-rotate(31deg) brightness(96%) contrast(90%);
+    cursor: pointer;
    }

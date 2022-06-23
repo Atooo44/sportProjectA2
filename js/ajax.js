@@ -385,7 +385,7 @@ function displaySearchResults(response){
         <p style='display: none;'><span class='match_identifier'>ID:${element['id_match']}</span></p>
     </div>
     </div>
-    <div class="players">
+    <div class="players" style="display: none;">
         <div class="row">
 
         </div>
@@ -401,6 +401,8 @@ function displaySearchResults(response){
     register_btn.className = 'registerButton';
     register_btn.id = "register";
     document.querySelector(`#pos_${i}`).appendChild(register_btn);
+
+    document.querySelector(`#pos_${i}`).innerHTML += '<img src="../ressources/arrow.svg" class="arrow_show"  display onclick="show('+ i +')">';
     i++;
 
     let bouton = document.getElementById('register');
