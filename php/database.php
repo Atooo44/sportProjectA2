@@ -228,7 +228,7 @@
     function getNamePlayers($db, $id_match){
         $response = array();
         try { 
-            $request = "SELECT u.first_name, u.last_name from users u left join  reservation r on u.mail = r.mail left join match m on m.id_match = r.id_match where m.id_match = :id_match";
+            $request = "SELECT u.first_name, u.last_name from users u left join  reservation r on u.mail = r.mail left join match m on m.id_match = r.id_match where m.id_match = :id_match and validation = 1";
             $statement = $db->prepare($request);
             $statement->bindParam(':id_match', $id_match);
             $statement->execute();
