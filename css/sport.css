@@ -12,7 +12,7 @@
 .dark{
     --black: #fff;
     --white: #111638;
-    --black2: #1a155e;
+    --black2: #263326;
     --red: #710101;
     --pink: #de5688;
     --purple: #932aab;
@@ -191,10 +191,18 @@ section{
   
 .title{
     color: var(--blue2);
+    display: flex;
+    align-items: center;
 }
 
 .title i{
     color: var(--blue2);
+}
+
+.title img{
+    width: 40px;
+    height: auto;
+    filter: invert(72%) sepia(24%) saturate(5981%) hue-rotate(192deg) brightness(98%) contrast(93%);
 }
 
 .card button{
@@ -298,7 +306,8 @@ section{
     padding: 10px;
 }
 
-.success_message{
+#success_message{
+    width: 100%;
     background-color: #00f62d90;
     border-radius: 10px;
     padding: 10px;

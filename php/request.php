@@ -81,6 +81,11 @@
             $res_edit_user = answer_org($db, $_PUT['validation'], $_PUT['id_match'], $_PUT['mail']);
             echo json_encode($res_edit_user);
             break;
+            
+        case $requestMethod == "GET" && $requestRessource == "notiOrganizer":
+            $res_noti_player = getNotificationOrganizer($db, $_GET['mail']);
+            echo json_encode($res_noti_player);
+            break;
         default:
         # code...
         break;

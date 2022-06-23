@@ -157,6 +157,14 @@ function loadUser() {
         undefined
       );
     }
+    if (window.location.href.includes('notifications.php')) {
+      ajaxRequest(
+        'GET', 
+        `request.php/notiOrganizer/?mail=${cookie}`, 
+        displayNotiOrganizer,
+        undefined
+      );
+    }
     if (window.location.href.includes('sport.php')) {
       let selected_sport = document.getElementById('sport_list').value
       let selected_city = document.getElementById('sport_list').value
