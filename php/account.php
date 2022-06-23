@@ -30,7 +30,7 @@
                 <ul class="navigation">
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="sport.php">Sports</a></li>
-                    <li><a href="connection.php" id="register_btn">Inscription</a></li>
+                    <li><a href="connection.php" id="register_btn">Connexion</a></li>
                     <li><a href="connection.php" id="disconnect"></a></li>
                     <li><span class="darkMode"></span></li>
                 </ul>
@@ -100,13 +100,13 @@
                         </div>
                         <div class="personal">
                             <div class="name"  id="user_name">
-                                Jane Loacart
+                                
                             </div>
                             <div class="mail" id="user_mail">
-                                <span>Email : </span> jane@locart.gmail.com
+                                <span> </span> 
                             </div>
                             <div class="password">
-                                <span>Mot de passe : </span> <input type="password" readonly value="**************" id="user_password"> 
+                            <span>Mot de passe : </span> <input type="password" readonly value="**************" id="user_password"> 
                             </div>
                         </div>
 
@@ -114,15 +114,15 @@
                     <div class="complementary">
                         <div class="age column">
                             <span>Age</span>
-                            <input id="user_age" type="text" readonly value="23 ans">
+                            <input id="user_age" type="text" readonly >
                         </div>
                         <div class="city column">
                             <span>Ville</span>
-                            <input id="user_city" type="text" readonly value="Nantes">
+                            <input id="user_city" type="text" readonly >
                         </div>
                         <div class="fit column">
                             <span>Forme physique</span>
-                            <input id="user_fit" type="text" readonly value="Athlétique">
+                            <input id="user_fit" type="text" readonly >
                         </div>
                     </div>
                     <div class="mark">

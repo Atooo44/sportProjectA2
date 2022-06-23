@@ -27,7 +27,7 @@
                 <ul class="navigation">
                     <li><a href="index.php">Accueil</a></li>
                     <li><a href="sport.php">Sports</a></li>
-                    <li><a href="connection.php" id="register_btn">Inscription</a></li>
+                    <li><a href="connection.php" id="register_btn">Connexion</a></li>
                     <li><a href="connection.php" id="disconnect"></a></li>
                     <li><span class="darkMode"></span></li>
                 </ul>
@@ -79,20 +79,7 @@
                         </div>
                     </div>
                     <div class="div2" id="cards_group"> 
-                        <div class="card">
-                            <div class="left_card">
-                                <div class="row_info title"><i class="fa-solid fa-futbol fa-xl"></i><h2>&nbsp;&nbsp;Football</h2></div><br>
-                                <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>&nbsp; Nantes </p></div><br>
-                                <div class="row_info"><i class="fa-solid fa-calendar"></i> <p>&nbsp; Le 25/07/2022 </p></div><br>
-                                <div class="row_info"><i class="fa-solid fa-clock"></i> <p>&nbsp; De 18h00 à 20h00 </p></div>
-                            </div>
-                            <div class="right_card">
-                                <p><span>Organisateur :</span> Pascal Dupras</p><br>
-                                <p><span>Joueurs inscrits :</span> 9/22</p><br>
-                                <p><span>Prix :</span> 12€</p><br>
-                                <button>S'INSCRIRE</button>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
 

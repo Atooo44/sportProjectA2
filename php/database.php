@@ -254,7 +254,7 @@
         $response = array();
         isCityExists($db, $city);
         try { 
-            $request = "INSERT INTO match (sport, max_player, date, length, price, score, best_player, mail, city) VALUES (:sport,:max_player, :date,:length, :price, '0-0', 'undef', :mail, :city)";
+            $request = "INSERT INTO match (sport, max_player, date, length, price, score, best_player, mail, city) VALUES (:sport,:max_player, :date,:length, :price, '0-0', 'Non renseigné', :mail, :city)";
             $statement = $db->prepare($request);
             $statement->bindParam(':sport', $sport);
             $statement->bindParam(':max_player', intval($amount_players));
