@@ -74,7 +74,7 @@
                                     <input type="checkbox" id="place_list" >
                                     <p>Complet</p>
                                 </div> 
-                            <button>Retirer les filtres </button>
+                            <button id="delete_filters">Retirer les filtres </button>
                         </div>
                     </div>
                     <div class="div2" id="cards_group"> 

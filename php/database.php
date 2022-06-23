@@ -462,7 +462,7 @@
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             $response['isSuccess'] = true;
-            $response['result'] = $result;
+            $response['result']['id_match'] = $id_match;
             return $response;
 
         } catch(PDOException $exception) {

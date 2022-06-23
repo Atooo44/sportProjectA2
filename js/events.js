@@ -67,3 +67,13 @@ $('#searchbar').on('click', () => {
 $('#disconnect').on('click', () => {
     deleteCookie('user_id');
 })
+
+$('#delete_filters').on('click', () => {
+    $('#sport_list')[0].value = "Tous les sports"
+    $('#city_list')[0].value = "Toutes les villes"
+    $('#date_list')[0].value = "Sans"
+    $('#price_list')[0].value = "120"
+    $('#demo')[0].innerHTML = "120"
+    $('#place_list')[0].checked = false
+    loadUser()
+})
