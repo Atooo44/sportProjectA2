@@ -158,19 +158,19 @@
     }
 
     //** Function that edit a user profile with given arguments */
-    function edit_user($db, $age, $password, $city, $fit, $mail, $mark){
+    function edit_user($db, $age, $password, $city, $fit, $mail, $mark, $picture){
         $response = array();
         try {
             isCityExists($db, $city);
             $hidden_password = password_hash("**************", PASSWORD_DEFAULT);
             if (!password_verify($password, $hidden_password)) {
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $request = "UPDATE users set city = :cityname, age = :age_value, password = :password_value, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
+                $request = "UPDATE users set city = :cityname, age = :age_value, password = :password_value, profil_picture = :picture, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
                 $statement = $db->prepare($request);
                 $statement->bindParam(':password_value', $password);
             } else {
                 $password = password_hash($password, PASSWORD_DEFAULT);
-                $request = "UPDATE users set city = :cityname, age = :age_value, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
+                $request = "UPDATE users set city = :cityname, age = :age_value, profil_picture = :picture, fit = :fit_value, mark = :mark  WHERE (mail = :mail)";
                 $statement = $db->prepare($request); 
             }
             $statement->bindParam(':mail', $mail);
@@ -178,6 +178,7 @@
             $statement->bindParam(':age_value', $age);
             $statement->bindParam(':cityname', $city);
             $statement->bindParam(':mark', $mark);
+            $statement->bindParam(':picture', $picture);
             $statement->execute();
             $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             $response['isSuccess'] = true;

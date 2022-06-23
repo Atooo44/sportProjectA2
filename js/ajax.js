@@ -192,7 +192,7 @@ function displayUserAccount(response){
   let savebutton = document.getElementById('edit_btn');
   var readonly = true;
   savebutton.addEventListener('click',function(){
-    
+    document.getElementById('picture_grid_id').style = "display: grid;"
     for (var i=0; i<inputs.length; i++) {
     inputs[i].toggleAttribute('readonly');
     };
@@ -203,12 +203,22 @@ function displayUserAccount(response){
    if (savebutton.innerHTML == "Editez le profil") {
       savebutton.innerHTML = "Enregistrer";
     } else {
-      ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}&mark=${document.getElementById('mark').value}`)
+
+      let picture;
+      document.querySelectorAll('input[type="radio"]').forEach(element => {
+        if (element.checked) {
+          picture = element.parentNode.querySelector('img')['src'].split('/').reverse()[0].substring(3,2)
+          console.log(picture)
+        }
+      });
+      ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}&mark=${document.getElementById('mark').value}&picture=${picture}`)
       savebutton.innerHTML = "Editez le profil";
       let success_message = document.createElement('div')
       success_message.className = "alert alert-success"
       success_message.id = "success_message"
       success_message.innerHTML = "Votre profil a été modifié avec succès";
+      document.getElementById('picture_grid_id').style = "display: none;"
+      document.querySelector("body > section > div.parent > div.div2 > div.identity > div.photo > img")['src'] = `../ressources/pp${picture}.png`
       document.querySelector("body > section > div.parent > div.div2 > div.identity").before(success_message);
       setTimeout(() =>
       {

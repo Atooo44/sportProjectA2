@@ -31,7 +31,7 @@
         
         case $requestMethod == "PUT" && $requestRessource == "edit":
             parse_str(file_get_contents('php://input'), $_PUT);
-            $res_edit_user = edit_user($db, $_PUT['age'], $_PUT['password'], $_PUT['city'], $_PUT['fit'], $_PUT['mail'], $_PUT['mark']);
+            $res_edit_user = edit_user($db, $_PUT['age'], $_PUT['password'], $_PUT['city'], $_PUT['fit'], $_PUT['mail'], $_PUT['mark'], $_PUT['picture']);
             echo json_encode($res_edit_user);
             break;
         case $requestMethod == "GET" && $requestRessource == "cities":
