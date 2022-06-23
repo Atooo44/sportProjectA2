@@ -76,6 +76,11 @@
             parse_str(file_get_contents('php://input'), $_PUT);
             $res_edit_past_match = editMatch($db, $_PUT['id_match'], $_PUT['best_player'], $_PUT['score']);
             break;
+        case $requestMethod == "PUT" && $requestRessource == "validate":
+            parse_str(file_get_contents('php://input'), $_PUT);
+            $res_edit_user = answer_org($db, $_PUT['validation'], $_PUT['id_match'], $_PUT['mail']);
+            echo json_encode($res_edit_user);
+            break;
         default:
         # code...
         break;

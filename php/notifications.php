@@ -56,25 +56,8 @@
                     
                     <div class="organizer">
                         <h2>Organisateur</h2>
-                        <div class="card_org">
-                            <div class="headcard">
-                                <div class="title">
-                                    <img src="../ressources/logo_football.svg">
-                                    <h3>Football<h3>
-                                </div>
-                                <div class="supp">
-                                    <span> 30/07/2022 à partir de 13h00 à Rezé</span>
-                                </div>
-                            </div>
-                            <div class="footcard">
-                                    <p> Jean marie souhaite participer à votre évènement</p>
-                                    <div class="check">
-                                        <img src="../ressources/cross.svg" class="cross">
-                                        <img src="../ressources/tick.svg" class="tick">
-                                    </div>
-                            </div>
-                                    
-                            
+                        <div id="org">
+
                         </div>
                     </div>
                 </div>                
@@ -83,9 +66,9 @@
         </section>
         <script src="../js/card.js"></script>
     <script src="../js/ajax.js"></script>
-    <script src="../js/search.js"></script>
     <script src="../js/events.js"></script>                     
-    <script src="../js/utils.js"></script>            
+    <script src="../js/utils.js"></script>      
+    <script src="../js/notification.js"></script>      
 <script>
     window.onload = function(){
         loadUser();

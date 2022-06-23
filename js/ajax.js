@@ -669,3 +669,43 @@ function displayNotiPlayer(response){
   
 
 }
+
+
+function displayNotiOrganizer(response){
+
+  
+  
+  const myNode = document.getElementById("org");
+  while (myNode.lastElementChild) {
+    myNode.removeChild(myNode.lastElementChild);
+  }
+  response['result'].forEach(element => {
+    match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
+    match_hours.setMinutes(match_hours.getMinutes() + element['length']);
+    document.getElementById('org').innerHTML += `
+    <div class="card_org">
+      <div class="headcard">
+          <div class="title">
+              <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+              <h3>${element['sport']}<h3>
+          </div>
+          <div class="supp">
+              <span> ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} à partir de ${element['date'].split(' ')[1].substr(0,5)} à ${element['city']}</span>
+          </div>
+      </div>
+      <div class="off"><p id="mail">${element['mail']}</p><p id="match">${element['id_match']}</p><p id="accepted">1</p><p id="refused">2</p>  </div>
+      <div class="footcard">
+              <p> ${element['first_name']} ${element['last_name']} souhaite participer à votre évènement</p>
+              <div class="check">
+                  <img src="../ressources/cross.svg" class="cross" onclick="acceptN()" id="no">
+                  <img src="../ressources/tick.svg" class="tick" onclick="acceptY()" id="yes">
+              </div>
+      </div> 
+    </div>`
+
+      
+  });
+
+  
+
+}

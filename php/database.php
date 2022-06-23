@@ -429,4 +429,46 @@
             return $response;
         }
     }
+
+    function getNotificationOrganizer($db, $mail){
+        $response = array();
+        try { 
+            $request = "SELECT m.sport, m.date, m.city, r.validation, u.first_name, u.last_name, m.id_match, u.mail from match m left join reservation r on r.id_match = m.id_match left join users u on r.mail = u.mail where r.validation = 0 and m.mail = :mail and u.mail != :mail ";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+    function answer_org($db, $validation, $id_match, $mail){
+        $response = array();
+        try {
+            
+            $request = "UPDATE reservation set validation = :validation  WHERE id_match = :id_match and mail = :mail";
+            $statement = $db->prepare($request); 
+
+            $statement->bindParam(':validation', $validation);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->bindParam(':mail', $mail);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
 ?>
