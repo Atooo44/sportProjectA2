@@ -688,7 +688,7 @@ function displayNotiOrganizer(response){
     <div class="card_org">
       <div class="headcard">
           <div class="title">
-              <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+              <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg" alt="${element['id_match']}">
               <h3>${element['sport']}<h3>
           </div>
           <div class="supp">
