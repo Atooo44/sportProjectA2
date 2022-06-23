@@ -53,7 +53,7 @@
                     <div class="identity">
                         <div class="photo">
                             <img src="../ressources/pp1.png">
-                            <div class="profil_picture">
+                            <div class="profil_picture" id="picture_grid_id">
                                     <div class="pp">
                                         <img src="../ressources/pp1.png">
                                         <input type="radio" name="pp">
