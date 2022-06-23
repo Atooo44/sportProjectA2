@@ -157,7 +157,6 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
 
     <script src="../js/card.js"></script>
     <script src="../js/ajax.js"></script>
-    <script src="../js/search.js"></script>
     <script src="../js/events.js"></script>                     
     <script src="../js/utils.js"></script>        
 <script>

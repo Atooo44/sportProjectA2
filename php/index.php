@@ -65,7 +65,7 @@
                 </div>
             </div>
         </section>
-<script src="../js/searchbar.js"></script>     
+    
 <script src="../js/ajax.js"></script>       
 <script src="../js/events.js"></script>
 <script src="../js/utils.js"></script>  
