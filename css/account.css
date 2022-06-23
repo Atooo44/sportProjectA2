@@ -7,16 +7,20 @@
     --green2: #acce24;
     --green3: #8eaa1f;
     --yellow: #F0D233;
+    --shadow: rgba(0, 0, 0, 0.25);
+    --hover: #f0f1f7;
 }
 
 .dark{
     --black: #fff;
-    --white: #111638;
-    --black2: #1a155e;
+    --white: #1c1c1e;
+    --black2: #1c1c1e;
+    --shadow: rgba(255, 255, 255, 0.25);
     --red: #710101;
     --pink: #de5688;
     --purple: #932aab;
     --green2:#09482d;
+    --hover: #29292c;
 }
 
 .parent {
@@ -165,6 +169,8 @@
 input:read-only{
     background-color: var(--white);
     border: none;
+    color: var(--black);
+    transition: 0ms ;
   }
 
   input:read-only:focus{
@@ -176,6 +182,9 @@ input{
     border: solid 3px var(--blue2);
     border-radius: 5px;
     padding: 5px 8px;
+    color: var(--black);
+    transition: 0ms ;
+
 }
 
 .alert{
@@ -192,6 +201,11 @@ input{
 
 .star{
     transition: 280ms ease;
+    color: var(--black);
+}
+
+.stars{
+    margin-right: 1em;
 }
 
 .profil_picture {
@@ -222,4 +236,12 @@ input{
     display: flex;
     flex-direction: row;
     align-items: center;
+   }
+
+   .identity{
+    color: var(--black);
+   }
+
+   .mark span{
+    color: var(--black);
    }

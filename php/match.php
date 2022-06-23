@@ -91,52 +91,7 @@ integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8=" crossorigin="ano
                     </div>
                     <div class="coming" id="coming">
                         <h2> Mes matchs à venir</h2>
-                        <div class="card_double" id="card_double">
-                            <div class="visible">
-                                <div class="column1">
-                                    <div class="title">
-                                        <img src="../ressources/logo_football.svg">
-                                        &nbsp;Match de Football
-                                    </div>
-                                    <p>Le 25/07/2022 de 18h00 à 20h00</p>
-                                    <p><span>Prix : </span> 22€ </p>
-                                </div>
-                                <div class="column2">
-                                <p><span>Organisateur : </span> Pascal Dupras</p>
-                                <p><span>Joueurs inscrits : </span> 9/22</p>
-                                <div id="toggle" onclick="show()" class="arrow">
-                                    <img src="../ressources/arrow.svg" >
-                                </div>
-                                </div>
-                            </div>
-                            
-                            <div class="players">
-                                <div class="column c1">
-                                    <div class="name">Pascal Dupras</div>
-                                    <div class="name">Pierre Caille</div>
-                                    <div class="name">Justin Malon</div>
-                                    <div class="name">Étienne Dupuis</div>
-                                </div>
-                                <div class="column c2">
-                                    <div class="name">Maxime Lepas</div>
-                                    <div class="name">Maxence Comil</div>
-                                    <div class="name">Jules Foula</div>
-                                    <div class="name">Julien Tomar</div>
-                                </div>
-                                <div class="column c3">
-                                <div class="name">Maxime Lepas</div>
-                                    <div class="name">Maxence Comil</div>
-                                    <div class="name">Jules Foula</div>
-                                    <div class="name">Julien Tomar</div>
-                                </div>
-                                <div class="column c4">
-                                    <div class="name">Maxime Lepas</div>
-                                    <div class="name">Maxence Comil</div>
-                                    <div class="name">Jules Foula</div>
-                                    <div class="name">Julien Tomar</div>
-                                </div>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="passed">
                         <h2> Mes matchs passés</h2>

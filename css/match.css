@@ -7,17 +7,22 @@
     --green2: #acce24;
     --green3: #8eaa1f;
     --yellow: #F0D233;
+    --shadow: rgba(0, 0, 0, 0.25);
+    --hover: #f0f1f7;
 }
 
 .dark{
     --black: #fff;
-    --white: #111638;
-    --black2: #1a155e;
+    --white: #1c1c1e;
+    --black2: #1c1c1e;
+    --shadow: rgba(255, 255, 255, 0.25);
     --red: #710101;
     --pink: #de5688;
     --purple: #932aab;
     --green2:#09482d;
+    --hover: #29292c;
 }
+
 
 .parent {
     display: grid;
@@ -39,6 +44,7 @@
         display: flex;
         flex-direction: column;
         margin-left: 10%;
+        color: var(--black);
     }
 
 .menu{
@@ -436,3 +442,30 @@
     background-color: var(--green3);
 }
 
+.title img{
+    margin-right: 0.5em;
+}
+
+.passed h2{
+    margin-bottom: 1.2em;
+}
+
+.organizer h3{
+    margin-bottom: 0.7em;
+}
+
+.player h3{
+    margin-bottom: 0.7em;
+}
+
+.card_event input{
+    color: var(--black);
+}
+
+.dark #choosed_date{
+    color-scheme: dark;
+}
+
+.dark #choosed_hours{
+    color-scheme: dark;
+}
