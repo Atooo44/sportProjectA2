@@ -71,6 +71,11 @@
         case $requestMethod == 'GET' && $requestRessource == 'retrieveOrganisator':
             $res_org_results = retrieveOrganisator($db, $_GET['mail']);
             echo json_encode($res_org_results);
+            break;
+        case $requestMethod == 'PUT' && $requestRessource == 'editResult':
+            parse_str(file_get_contents('php://input'), $_PUT);
+            $res_edit_past_match = editMatch($db, $_PUT['id_match'], $_PUT['best_player'], $_PUT['score']);
+            break;
         default:
         # code...
         break;

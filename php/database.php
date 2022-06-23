@@ -328,7 +328,7 @@
     function retrieve_matchs($db, $mail){
         $response = array();
         try { 
-            $request = "SELECT m.sport, m.mail, m.city, m.price, m.date, m.length, m.id_match, m.max_player, r.validation from match m left join reservation r on r.id_match = m.id_match left join users u on r.mail = u.mail where r.validation=1 and u.mail = :mail";
+            $request = "SELECT m.sport, m.mail, m.city, m.price, m.date, m.length, m.id_match, m.max_player, m.best_player, m.score ,r.validation from match m left join reservation r on r.id_match = m.id_match left join users u on r.mail = u.mail where r.validation=1 and u.mail = :mail";
             $statement = $db->prepare($request);
             $statement->bindParam(':mail', $mail);
             $statement->execute();
@@ -381,7 +381,7 @@
     function retrieveOrganisator($db, $mail){
         $response = array();
         try { 
-            $request = "SELECT m.sport, m.date, m.city, m.length, m.mail, m.max_player, m.price, m.id_match from match m WHERE m.mail = :mail";
+            $request = "SELECT m.sport, m.date, m.city, m.length, m.mail, m.max_player, m.price, m.id_match, m.best_player, m.score from match m WHERE m.mail = :mail";
             $statement = $db->prepare($request);
             $statement->bindParam(':mail', $mail);
             $statement->execute();
@@ -398,6 +398,27 @@
                 $result[$key]['registered_player_amount'] = $number;
             }
 
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+    function editMatch($db, $id_match, $best_player, $score){
+        $response = array();
+        try { 
+            $request = "UPDATE match set best_player = :best_player, score = :score WHERE (id_match = :id_match)";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->bindParam(':best_player', $best_player);
+            $statement->bindParam(':score', $score);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
             $response['isSuccess'] = true;
             $response['result'] = $result;
             return $response;

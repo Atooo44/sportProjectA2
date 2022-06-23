@@ -1,1 +1,1 @@
-SELECT u.first_name, u.last_name from users u WHERE u.mail = 'louis.sdmir@gmail.com';
+UPDATE match set best_player = 'Bastien', score = '2 - 1' WHERE (id_match = '2')

@@ -570,7 +570,7 @@ function displayOrgResults(response) {
       <div class="visible">
           <div class="column1">
               <div class="title">
-                  <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg">
+                  <img src="../ressources/logo_${element['sport'].toLowerCase()}.svg" alt=${element['id_match']}>
                   ${element['sport']}
               </div>
               <p>Le ${element['date'].split(' ')[0].split('-').reverse().join(',').replaceAll(',', '/')} De ${element['date'].split(' ')[1].substr(0,5)} à ${match_finished}</p>
@@ -579,11 +579,43 @@ function displayOrgResults(response) {
           <div class="column2">
           <p><span>Organisateur : </span> ${element['0'][0]['first_name']} ${element['0'][0]['last_name']}</p>
           <p><span>Joueurs inscrits : </span> ${element['registered_player_amount'][0]['count']}/${element['max_player']}</p>
-          <p><span>Score : </span><input type="text" class="score" readonly></p>
+          <p><span>Score : </span><input type="text" class="score" value="${element['score']}"readonly></p>
+          <p><span>Joueur du match : </span><input type="text" class="score" value="${element['best_player']}" readonly></p>
           
-          <button id="edit_btn">Editez le profil</button>`
+          <button id="edit_btn">Editez le match</button>` 
     }
   })
+  
+  document.querySelectorAll('#edit_btn').forEach(element => {
+    element.addEventListener('click',function(){
+      var inputs = event.target.parentNode.querySelectorAll('input[class="score"]')
+      inputs.forEach(element => {
+        element.toggleAttribute('readonly')
+      });
+     if (element.innerHTML == "Editez le match") {
+      element.innerHTML = "Enregistrer";
+      } else {
+        element.innerHTML = "Editez le match";
+        let match_id = event.target.parentNode.parentNode.getElementsByTagName('img')[0]['alt']
+        let score = event.target.parentNode.getElementsByTagName('input')[0]['value']
+        let best_player = event.target.parentNode.getElementsByTagName('input')[1]['value']
+        ajaxRequest('PUT', "request.php/editResult", undefined, `id_match=${match_id}&score=${score}&best_player=${best_player}`)
+        /*
+        
+        savebutton.innerHTML = "Editez le profil";
+        let success_message = document.createElement('div')
+        success_message.className = "alert alert-success"
+        success_message.id = "success_message"
+        success_message.innerHTML = "Votre profil a été modifié avec succès";
+        document.querySelector("body > section > div.parent > div.div2 > div.identity").before(success_message);
+        setTimeout(() =>
+        {
+          $('#success_message').remove();
+        }, 3500);
+        */
+      }   
+    });
+  });
 
 }
 
