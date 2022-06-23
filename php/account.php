@@ -53,7 +53,6 @@
                     <div class="identity">
                         <div class="photo">
                             <img src="../ressources/pp1.png">
-                            <i class="fa-solid fa-pen-to-square "></i>
                             <div class="profil_picture">
                                     <div class="pp">
                                         <img src="../ressources/pp1.png">
@@ -93,8 +92,7 @@
                                     </div> 
                                     <div class="vide">
 
-                                    </div> 
-                                    <button id="submitpp">Valider</button>         
+                                    </div>       
                                 </div>
                         </div>
                         <div class="personal">
