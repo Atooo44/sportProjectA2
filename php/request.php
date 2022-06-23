@@ -86,6 +86,11 @@
             $res_noti_player = getNotificationOrganizer($db, $_GET['mail']);
             echo json_encode($res_noti_player);
             break;
+        
+        case $requestMethod == "GET" && $requestRessource == "namePlayers":
+            $res_name_player = getNamePlayers($db, $_GET['id_match']);
+            echo json_encode($res_name_player);
+            break;
         default:
         # code...
         break;

@@ -224,6 +224,23 @@
         }
     }
 
+    function getNamePlayers($db, $id_match){
+        $response = array();
+        try { 
+            $request = "SELECT u.first_name, u.last_name from users u left join  reservation r on u.mail = r.mail left join match m on m.id_match = r.id_match where m.id_match = :id_match";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
     //** Function that return matchs according to a query */
     function search_matchs($db, $sport, $city, $date, $price, $place, $query){
         $response = array();
@@ -237,6 +254,10 @@
             foreach ($result as $key => $value) {
                 $number = getNumberePlayers($db, $result[$key]['id_match']);
                 $result[$key]['registered_player_amount'] = $number;
+            }
+            foreach ($result as $key => $value) {
+                $name = getNamePlayers($db, $result[$key]['id_match']);
+                $result[$key]['player_name'] = $name;
             }
             $response['result'] = $result;
             $response['isSuccess'] = true;
@@ -349,6 +370,26 @@
             $response['result'] = $result;
 
 
+            return $response;
+
+        } catch(PDOException $exception) {
+            $response['message'] = $exception->getMessage();
+            $response['isSuccess'] = false;
+            return $response;
+        }
+    }
+
+    function getMatchPlayers($db, $id_match){
+        $response = array();
+        try { 
+            $request = "SELECT u.first_name, u.last_name from users u left join  reservation r on u.mail = r.mail left join match m on m.id_match = 
+            r.id_match where m.id_match = :id_match";
+            $statement = $db->prepare($request);
+            $statement->bindParam(':id_match', $id_match);
+            $statement->execute();
+            $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $response['isSuccess'] = true;
+            $response['result'] = $result;
             return $response;
 
         } catch(PDOException $exception) {
@@ -471,4 +512,6 @@
             return $response;
         }
     }
+
+    
 ?>

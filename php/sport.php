@@ -116,6 +116,15 @@
         menuToggle.classList.toggle('active');
         navigation.classList.toggle('active');
     }
+    function show(x){
+        let card = document.getElementsByClassName('players');
+        let arrow = document.getElementsByClassName('arrow_show');
+        if (card[x].style.display === "none") {
+            card[x].style.display = "flex";
+        } else {
+            card[x].style.display = "none";
+        }
+    }
 </script>
 <script src="https://kit.fontawesome.com/7f6d2012d0.js" >
     </body>
