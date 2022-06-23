@@ -401,19 +401,20 @@ function displaySearchResults(response){
     element['player_name'].forEach(name => {
       r[i].innerHTML += '<div class="name">' + name['first_name'] + ' ' + name['last_name'] + '</div>';
    });
-    let register_btn = document.createElement('button');
-    register_btn.innerHTML = "S'INSCRIRE";
-    register_btn.className = 'registerButton';
-    register_btn.id = "register";
-    document.querySelector(`#pos_${i}`).appendChild(register_btn);
+    
 
-    document.querySelector(`#pos_${i}`).innerHTML += '<img src="../ressources/arrow.svg" class="arrow_show"  display onclick="show('+ i +')">';
-    i++;
-
-    let bouton = document.getElementById('register');
-    if (element['registered_player_amount'][0]['count'] == element['max_player'] ){
-      bouton.style.display ="none";
+    if (element['registered_player_amount'][0]['count'] != element['max_player'] ){
+      let register_btn = document.createElement('button');
+      register_btn.innerHTML = "S'INSCRIRE";
+      register_btn.className = 'registerButton';
+      register_btn.id = "register";
+      document.querySelector(`#pos_${i}`).appendChild(register_btn);
+  
+      
     }
+    document.querySelector(`#pos_${i}`).innerHTML += '<img src="../ressources/arrow.svg" class="arrow_show"  display onclick="show('+ i +')">';
+
+    i++;
     
     
   });
