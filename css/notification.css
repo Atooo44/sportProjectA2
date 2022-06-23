@@ -32,6 +32,7 @@
     grid-row-gap: 0px;
     width: 100%;
     margin-top: 5vh;
+    min-height: 81vh;
 
     }
     
@@ -141,6 +142,7 @@
     width: 40px;
     height: auto;
     filter: invert(72%) sepia(74%) saturate(524%) hue-rotate(21deg) brightness(91%) contrast(78%);
+    cursor: pointer;
 }
 
 .organizer h2{

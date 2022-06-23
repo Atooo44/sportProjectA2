@@ -70,12 +70,12 @@
                         </div>
                         <h2 class="signup_title">S'inscrire</h2>
                             <div class="signup_row">
-                                <label class="signup_label">Nom</label>
-                                    <input class="signup_input" id="first_name" type="text" placeholder="Macor"/>
+                                <label class="signup_label">Prénom</label>
+                                    <input class="signup_input" id="first_name" type="text" placeholder="Pierre"/>
                             </div>
                             <div class="signup_row">
-                                <label class="signup_label">Prénom</label>
-                                <input class="signup_input" id="last_name" type="text" placeholder="Pierre"/>
+                                <label class="signup_label">Nom</label>
+                                <input class="signup_input" id="last_name" type="text" placeholder="Dupuis"/>
                             </div>
                             <div class="signup_row">
                                 <label class="signup_label">Ville</label>
