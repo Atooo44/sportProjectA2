@@ -208,7 +208,6 @@ function displayUserAccount(response){
       document.querySelectorAll('input[type="radio"]').forEach(element => {
         if (element.checked) {
           picture = element.parentNode.querySelector('img')['src'].split('/').reverse()[0].substring(3,2)
-          console.log(picture)
         }
       });
       ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}&mark=${document.getElementById('mark').value}&picture=${picture}`)
@@ -360,9 +359,7 @@ function displaySearchResults(response){
       var yyyy = today.getFullYear();
 
       today =  yyyy + '-' + mm + '-' + dd;
-      console.log(response['result'][index]['date'].split(' ')[0])
       if (new Date(response['result'][index]['date'].split(' ')[0]) > new Date(today)) {
-        console.log(response['result'][index]['date'].split(' ')[0])
         response['result'].splice(index, 1);
         index--;
       }
@@ -374,11 +371,9 @@ function displaySearchResults(response){
   }
   var i = 0
   response['result'].forEach(element => {
-    console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
     match_finished = addMinutes(match_hours.toLocaleTimeString(), parseInt(element['length']))
     element['player_name'].forEach(name => {
-      console.log(name['first_name']); 
     });
     document.getElementById('cards_group').innerHTML += `<div class="card">
     <div class="row_card">
@@ -504,7 +499,6 @@ function displayCities2(response){
       opt.value = response['result'][i]['city'];
       opt.innerHTML = response['result'][i]['city'];
       document.getElementById('cities').innerHTML+="<li>"+ response['result'][i]['city'] + "</li>";
-      console.log(opt)
     }
   }
 
