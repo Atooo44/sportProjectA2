@@ -494,13 +494,7 @@ for(let i = 0; i < listItems1.length; i++){
 }
 
 
-var slider = document.getElementById("price_list");
-var output = document.getElementById("demo");
-output.innerHTML = slider.value;
 
-slider.oninput = function() {
-  output.innerHTML = this.value;
-}
 
 function displayCurrentMatches(response){
   response['result'].forEach(element => {
