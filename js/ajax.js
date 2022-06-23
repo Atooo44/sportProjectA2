@@ -367,7 +367,11 @@ function displaySearchResults(response){
     console.log(element['date'].split(' ')[1])
     match_hours = new Date(0,0,0, element['date'].split(' ')[1].split(':')[0],element['date'].split(' ')[1].split(':')[1],element['date'].split(' ')[1].split(':')[2])
     match_finished = addMinutes(match_hours.toLocaleTimeString(), parseInt(element['length']))
+    element['player_name'].forEach(name => {
+      console.log(name['first_name']); 
+    });
     document.getElementById('cards_group').innerHTML += `<div class="card">
+    <div class="row_card">
     <div class="left_card">
         <div class="row_info title"><img src="../ressources/logo_${element['sport'].toLowerCase()}.svg"><h2>&nbsp;&nbsp;${element['sport']}</h2></div><br>
         <div class="row_info"><i class="fa-solid fa-location-dot"></i> <p>${element['city']} </p></div><br>
@@ -380,8 +384,18 @@ function displaySearchResults(response){
         <p><span>Prix :</span> ${element['price']}€</p><br>
         <p style='display: none;'><span class='match_identifier'>ID:${element['id_match']}</span></p>
     </div>
+    </div>
+    <div class="players">
+        <div class="row">
+
+        </div>
+    </div>
 </div>`
     
+    let r = document.getElementsByClassName("row");
+    element['player_name'].forEach(name => {
+      r[i].innerHTML += '<div class="name">' + name['first_name'] + ' ' + name['last_name'] + '</div>';
+   });
     let register_btn = document.createElement('button');
     register_btn.innerHTML = "S'INSCRIRE";
     register_btn.className = 'registerButton';

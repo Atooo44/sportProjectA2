@@ -146,6 +146,7 @@ section{
 
 .card{
     display: flex;
+    flex-direction: column;
     width: 80%;
     align-items: center;
     justify-content: space-around;
@@ -321,3 +322,32 @@ section{
 p{
     color: var(--black);
 }
+
+.row_card{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2em;
+    width: 100%;
+   }
+
+   .players{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+   }
+
+   .row{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+   }
+
+   .name{
+    display: flex;
+    flex-direction: row;
+    margin: 10px ;
+   }
