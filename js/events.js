@@ -16,7 +16,7 @@ $('#signup_submit').on('click', () => {
         'POST', 
         "request.php/create", 
         createSession,
-        `first_name=${first_name}&last_name=${last_name}&city=${city}&mail=${mail}&password=${password}&city=${city}&picture=${picture}`
+        `first_name=${first_name}&last_name=${last_name}&mail=${mail}&password=${password}&city=${city}&picture=${picture}`
     );
 });
 
