@@ -140,7 +140,7 @@
             </div>
 
             <div class="modify">
-                <button id="edit_btn">Editez le profil</button>
+                <button id="edit_btn">Editer le profil</button>
             </div>
             
 

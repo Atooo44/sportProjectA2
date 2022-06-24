@@ -202,4 +202,15 @@ INSERT INTO reservation (validation, mail, id_match) VALUES
 (2, 'jmeunier@voila.fr',31 ),
 (0, 'gaudinemmanuel@free.fr',29 ),
 (2, 'charlottemarin@free.fr',24 ),
-(0, 'eugenelebreton@voila.fr',17 );
+(0, 'eugenelebreton@voila.fr',17 ),
+(1, 'gbrunet@noos.fr',37),
+(1, 'paulbertin@orange.fr',38),
+(1, 'gaudinemmanuel@free.fr',37),
+(1, 'eugenelebreton@voila.fr',37),
+(1, 'gbrunet@noos.fr',37),
+(1, 'andredias@lacombe.fr',37 ),
+(1, 'lebrunzacharie@guyon.fr',37 ),
+(1, 'lgodard@labbe.fr',37 ),
+(1, 'dbrunet@potier.net',37 ),
+(1, 'paulbertin@orange.fr',37 ),
+(1, 'gilbertgabriel@mallet.fr',37 );

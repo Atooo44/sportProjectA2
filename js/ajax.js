@@ -200,7 +200,7 @@ function displayUserAccount(response){
       input_password[i].toggleAttribute('readonly');
       };
       input_mark.toggleAttribute('readonly'); 
-   if (savebutton.innerHTML == "Editez le profil") {
+   if (savebutton.innerHTML == "Editer le profil") {
       savebutton.innerHTML = "Enregistrer";
     } else {
 
@@ -211,7 +211,7 @@ function displayUserAccount(response){
         }
       });
       ajaxRequest('PUT', "request.php/edit", undefined, `age=${document.getElementById('user_age').value.split(' ')[0]}&password=${document.getElementById('user_password').value}&city=${document.getElementById('user_city').value}&fit=${document.getElementById('user_fit').value}&mail=${document.cookie.split('=')[1]}&mark=${document.getElementById('mark').value}&picture=${picture}`)
-      savebutton.innerHTML = "Editez le profil";
+      savebutton.innerHTML = "Editer le profil";
       let success_message = document.createElement('div')
       success_message.className = "alert alert-success"
       success_message.id = "success_message"
@@ -605,7 +605,7 @@ function displayOrgResults(response) {
           <p><span>Score : </span><input type="text" class="score" value="${element['score']}"readonly></p>
           <p><span>Joueur du match : </span><input type="text" class="score" value="${element['best_player']}" readonly></p>
           
-          <button id="edit_btn">Editez le match</button>` 
+          <button id="edit_btn">Editer le match</button>` 
     }
   })
   
@@ -615,17 +615,17 @@ function displayOrgResults(response) {
       inputs.forEach(element => {
         element.toggleAttribute('readonly')
       });
-     if (element.innerHTML == "Editez le match") {
+     if (element.innerHTML == "Editer le match") {
       element.innerHTML = "Enregistrer";
       } else {
-        element.innerHTML = "Editez le match";
+        element.innerHTML = "Editer le match";
         let match_id = event.target.parentNode.parentNode.getElementsByTagName('img')[0]['alt']
         let score = event.target.parentNode.getElementsByTagName('input')[0]['value']
         let best_player = event.target.parentNode.getElementsByTagName('input')[1]['value']
         ajaxRequest('PUT', "request.php/editResult", undefined, `id_match=${match_id}&score=${score}&best_player=${best_player}`)
         /*
         
-        savebutton.innerHTML = "Editez le profil";
+        savebutton.innerHTML = "Editer le profil";
         let success_message = document.createElement('div')
         success_message.className = "alert alert-success"
         success_message.id = "success_message"
