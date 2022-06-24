@@ -213,4 +213,15 @@ INSERT INTO reservation (validation, mail, id_match) VALUES
 (1, 'lgodard@labbe.fr',37 ),
 (1, 'dbrunet@potier.net',37 ),
 (1, 'paulbertin@orange.fr',37 ),
-(1, 'gilbertgabriel@mallet.fr',37 );
+(1, 'gilbertgabriel@mallet.fr',37 ),
+(0, 'bastien@gmail.com',13 ),
+(0, 'bastien@gmail.com',2 ),
+(1, 'bastien@gmail.com',25 ),
+(1, 'bastien@gmail.com',20 ),
+(2, 'bastien@gmail.com',34 ),
+(0, 'monnierchristine@dbmail.com',39 ),
+(0, 'antoine38@clerc.com',40 ),
+(0, 'eugenelebreton@voila.fr',40 ),
+(0, 'paulbertin@orange.fr',40 ),
+(1, 'bastien@gmail.com',41),
+(1, 'merciermarianne@bouygtel.fr',41 );

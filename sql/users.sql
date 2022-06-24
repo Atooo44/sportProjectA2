@@ -39,7 +39,7 @@ INSERT INTO users (mail, first_name, last_name, age, password, fit, match_played
 ('gbrunet@noos.fr', 'Victor', 'Buisson', 20,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,6,'Rennes' ),
 ('gregoireanais@coste.com', 'Thierry', 'Delahaye', 43,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,6,'Grenoble' ),
 ('claudinevalette@pasquier.net', 'Stéphanie', 'Moreno', 25,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,8,'Caen' ),
-('monnierchristine@dbmail.com', 'Agathe', 'Mary', 49,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,3,'Tours' ),
+('monnierchristine@dbmail.com', 'Christine', 'Monier', 23,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','Moyenne',0,4,3,'Tours' ),
 ('launaydanielle@bourgeois.org', 'Michèle', 'Ferrand', 53,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,9,'Lile' ),
 ('lelievrechristophe@ribeiro.net', 'Auguste', 'Guillet', 56,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,7,'Caen' ),
 ('alexfrancois@tiscali.fr', 'Théodore', 'Barbier', 42,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,1,'Saint Denis' ),
@@ -51,4 +51,5 @@ INSERT INTO users (mail, first_name, last_name, age, password, fit, match_played
 ('vklein@gmail.com', 'Nicole', 'Mercier', 39,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,5,'Havre' ),
 ('merciermarianne@bouygtel.fr', 'Louis', 'Le Gall', 17,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,1,'Grenoble' ),
 ('dufourvalentine@tele2.fr', 'Valérie', 'Hebert', 20,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,9,'Tours' ),
-('jmeunier@voila.fr', 'Pierre', 'Jacques', 34,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,8,'Toulon' );
+('jmeunier@voila.fr', 'Pierre', 'Jacques', 34,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','',0,0,8,'Toulon' ),
+('bastien@gmail.com', 'Bastien', 'Huard', 19,'$2y$10$3OXe0K6v04jLEjTgvjvUqOBIRtwrJt/KAhuq3.2Gpylhhljg5C642','Athlétique',0,5,2,'Nantes' );

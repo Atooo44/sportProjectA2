@@ -38,4 +38,10 @@ INSERT INTO match (sport, max_player, date, length, price, score, best_player, m
 ('Basketball', '2', '2022-08-07 07:42:05', 148,18,'0-0','undef','gregoireanais@coste.com','Nice' ),
 ('Tennis', '5', '2022-10-03 01:31:24', 165,0,'0-0','undef','paulbertin@orange.fr','Mans' ),
 ('Football', '27', '2022-08-27 15:20:07', 42,3,'0-0','undef','eugenelebreton@voila.fr','Grenoble' ),
-('Football', '32', '2022-11-16 07:36:41', 131,5,'0-0','undef','timotheedupre@laposte.net','Reims' );
+('Football', '32', '2022-11-16 07:36:41', 131,5,'0-0','undef','timotheedupre@laposte.net','Reims' ),
+('Football', '10', '2022-05-16 07:36:41', 120,5,'8-0','Ayoub Karine','bastien@gmail.com','Nantes' ),
+('Babyfoot', '1', '2022-06-19 12:00:00', 180,0,'0-0','undef','bastien@gmail.com','Nantes' ),
+('Basketball', '1', '2022-06-25 18:00:00', 80,3,'0-0','undef','bastien@gmail.com','Nantes' ),
+('Volleyball', '3', '2022-07-10 10:00:00', 30,0,'0-0','undef','bastien@gmail.com','Nantes' ),
+('Tennis', '3', '2022-06-02 14:00:00', 60,8,'1-3','Bastien Huard','gregoireanais@coste.com','Nantes' );
+
